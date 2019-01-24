@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tipe;
+use Illuminate\Validation\Rule;
 
 class TipeController extends Controller
 {
@@ -20,9 +21,14 @@ class TipeController extends Controller
 
     public function store()
     {
+         $this->validate(request(), [
+            'nama_tipe' => 'required|unique:tipes|max:4',
+            'keterangan_tipe' => 'required|max:50',
+        ]);
+
         Tipe::create([
             'nama_tipe' => request('nama_tipe'),
-            'keterangan' => request('keterangan')
+            'keterangan_tipe' => request('keterangan_tipe')
         ]);
 
         return redirect()->route('tipe.index')->with('success', 'Data berhasil ditambah');
@@ -35,19 +41,25 @@ class TipeController extends Controller
 
     public function update(Tipe $tipe)
     {
-        $tipe->update([
-            'nama_tipe' => request('nama_tipe'),
-            'keterangan' => request('keterangan')
+        $this->validate(request(), [
+            'nama_tipe' => Rule::unique('tipes', 'nama_tipe')->ignore($tipe->id_tipe),
+            'nama_tipe' => 'required|max:4',
+            'keterangan_tipe' => 'required|max:50',
         ]);
 
-        return redirect()->route('tipe.index')->with('warning', 'Data berhasil diubah');
+        $tipe->update([
+            'nama_tipe' => request('nama_tipe'),
+            'keterangan_tipe' => request('keterangan_tipe')
+        ]);
+
+        return redirect()->route('tipe.index')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy(Tipe $tipe)
     {
         $tipe->delete();
 
-        return redirect()->route('tipe.index')->with('danger', 'Data berhasil dihapus');
+        return redirect()->route('tipe.index')->with('success', 'Data berhasil dihapus');
     }
 
 

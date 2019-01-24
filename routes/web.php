@@ -66,3 +66,11 @@ Route::post('/karyawan/tambah-data', 'KaryawanController@store')->name('karyawan
 Route::get('/karyawan/{karyawan}/ubah-data', 'KaryawanController@edit')->name('karyawan.edit');
 Route::patch('/karyawan/{karyawan}/ubah-data', 'KaryawanController@update')->name('karyawan.update');
 Route::delete('/karyawan/{karyawan}/hapus', 'KaryawanController@destroy')->name('karyawan.destroy');
+
+
+Route::get('/teknisi', 'TeknisiController@index')->name('teknisi.index');
+Route::get('/teknisi/tambah-data', 'TeknisiController@create')->name('teknisi.create');
+Route::post('/teknisi/tambah-data', 'TeknisiController@store')->name('teknisi.store');
+Route::get('/teknisi/{teknisi}/ubah-data', 'TeknisiController@edit')->name('teknisi.edit');
+Route::patch('/teknisi/{teknisi}/ubah-data', 'TeknisiController@update')->name('teknisi.update');
+Route::delete('/teknisi/{teknisi}/hapus', 'TeknisiController@destroy')->name('teknisi.destroy');

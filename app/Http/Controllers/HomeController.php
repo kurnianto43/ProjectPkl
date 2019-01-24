@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kulkas;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('beranda.index');
+        $kulkascount = Kulkas::count();
+        return view('beranda.index', compact('kulkascount'));
     }
 }

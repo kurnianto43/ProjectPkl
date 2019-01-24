@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Karyawan;
+use Illuminate\Validation\Rule;
 
 class KaryawanController extends Controller
 {
@@ -20,12 +21,17 @@ class KaryawanController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate(request(), [
+            'nik_karyawan' => 'required|unique:karyawans|max:10',
+            'nama_karyawan' => 'required|max:25',
+            'jabatan' => 'required|max:25',
+            'alamat' => 'required|max:100',
+            'no_hp' => 'required|max:13',
+            'foto_karyawan' =>'required|max:2500',
+        ]);
 
-        // tampung berkas yang sudah diunggah ke variabel baru
-        // 'file' merupakan nama input yang ada pada form
         $uploadedFoto = $request->file('foto_karyawan');        
-        // simpan berkas yang diunggah ke sub-direktori 'public/files'
-        // direktori 'files' otomatis akan dibuat jika belum ada
+
         $path = $uploadedFoto->store('foto-karyawan');
 
         karyawan::create([
@@ -47,18 +53,32 @@ class KaryawanController extends Controller
 
     public function update(Karyawan $karyawan)
     {
-        $karyawan->update([
-            'nama_kondisi' => request('nama_kondisi'),
-            'keterangan' => request('keterangan')
+         $this->validate(request(), [
+            'nik_karyawan' => Rule::unique('karyawans', 'nik_karyawan')->ignore($karyawan->id_karyawan),
+            'nik_karyawan' => 'required|max:10',
+            'nama_karyawan' => 'required|max:25',
+            'jabatan' => 'required|max:25',
+            'alamat' => 'required|max:100',
+            'no_hp' => 'required|max:13',
+            'foto_karyawan' =>'required|max:2500',
         ]);
 
-        return redirect()->route('karyawan.index')->with('warning', 'Data berhasil diubah');
+        $karyawan->update([
+            'nik_karyawan' => request('nik_karyawan'),
+            'nama_karyawan' => request('nama_karyawan'),
+            'jabatan' => request('jabatan'),
+            'alamat' => request('alamat'),
+            'no_hp' => request('no_hp'),
+            'foto_karyawan' => request()->file('foto_karyawan')->store('foto-karyawan')
+        ]);
+
+        return redirect()->route('karyawan.index')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy(Karyawan $karyawan)
     {
         $karyawan->delete();
 
-        return redirect()->route('karyawan.index')->with('danger', 'Data berhasil dihapus');
+        return redirect()->route('karyawan.index')->with('success', 'Data berhasil dihapus');
     }
 }

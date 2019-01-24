@@ -2,22 +2,21 @@
 
 
 @section('title')
-sukucadang
+Data Kulkas
 @endsection
 
 @section('link')
 <!-- DataTables -->
-  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endsection
 
 @section('content_header')
         <h1>
-            Master Data
+            Kulkas
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-database"></i> Master Data</a></li>
-        <li class="active"><a href="#"> Data Kondisi</a></li>
+        <li><a href="#"><i class="fa fa-plug"></i> Data Kulkas</a></li>
       </ol>
 @endsection
 
@@ -26,7 +25,8 @@ sukucadang
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Kondisi</h3>
+              <h3 class="box-title">Data Kulkas</h3>
+              <a href="{{ route('kulkas.create') }}" class="btn btn-info pull-right" style="margin-left: 5px;">Cetak</a>
               <a href="{{ route('kulkas.create') }}" class="btn btn-primary pull-right">Tambah</a>
             </div>
             <!-- /.box-header -->
@@ -37,6 +37,7 @@ sukucadang
                     <th width="5%">No</th>
                     <th width="25%">Nomor Asset</th>
                     <th>Nomor Seri</th>
+                    <th>Tanggal Masuk</th>
                     <th>Tipe</th>
                     <th>Kondisi</th>
                     <th width="10%">Aksi</th>
@@ -50,6 +51,7 @@ sukucadang
                     <td>{{ $no }}</td>
                     <td>{{ $kulkas -> nomor_asset }}</td>
                     <td>{{ $kulkas -> nomor_seri }}</td>
+                    <td>{{ $kulkas -> tanggal_masuk }}</td>
                     <td>{{ $kulkas -> tipe -> nama_tipe }}</td>
                     <td>{{ $kulkas -> kondisi -> nama_kondisi }}</td>
                     <td>
@@ -76,8 +78,8 @@ sukucadang
 
 @section('script')
 <!-- DataTables -->
-<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 
 <script>
   $(function () {

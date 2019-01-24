@@ -17,6 +17,7 @@ class CreateKulkasTable extends Migration
             $table->increments('id_kulkas');
             $table->string('nomor_asset', 7)->unique();
             $table->string('nomor_seri', 20);
+            $table->date('tanggal_masuk')->nullable();
             $table->integer('id_tipe')->unsigned();
             $table->integer('id_kondisi')->unsigned();
             $table->timestamps();

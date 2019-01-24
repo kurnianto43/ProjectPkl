@@ -2,12 +2,12 @@
 
 
 @section('title')
-karyawan
+Karyawan
 @endsection
 
 @section('link')
-<!-- DataTables -->
-  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endsection
 
 @section('content_header')
@@ -16,8 +16,7 @@ karyawan
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-database"></i> Master Data</a></li>
-        <li class="active"><a href="#"> Data Kondisi</a></li>
+        <li class="active"><a href="#"><i class="fa fa-users"></i> Data Karyawan</a></li>
       </ol>
 @endsection
 
@@ -26,7 +25,7 @@ karyawan
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Kondisi</h3>
+              <h3 class="box-title">Data Karyawan</h3>
               <a href="{{ route('karyawan.create') }}" class="btn btn-primary pull-right">Tambah</a>
             </div>
             <!-- /.box-header -->
@@ -35,10 +34,10 @@ karyawan
                 <thead>
                 <tr>
                     <th width="5%">No</th>
-                    <th width="15%">Nik Karyawan</th>
+                    <th width="10%">NIK</th>
                     <th>Nama Karyawan</th>
                     <th>Jabatan</th>
-                    <th>Alamat</th>
+                    <th width="30%">Alamat</th>
                     <th>Nomor Hp/Telp</th>
                     <th>Foto</th>
                     <th width="10%">Aksi</th>
@@ -82,8 +81,8 @@ karyawan
 
 @section('script')
 <!-- DataTables -->
-<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 
 <script>
   $(function () {

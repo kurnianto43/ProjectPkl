@@ -16,7 +16,7 @@ class CreateTipesTable extends Migration
         Schema::create('tipes', function (Blueprint $table) {
             $table->increments('id_tipe');
             $table->string('nama_tipe', 4)->unique();
-            $table->string('keterangan', 50);
+            $table->string('keterangan_tipe', 50);
             $table->timestamps();
         });
     }

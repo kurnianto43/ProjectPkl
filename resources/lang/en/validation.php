@@ -78,7 +78,7 @@ return [
     'max' => [
         'numeric' => 'The :attribute may not be greater than :max.',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
+        'string' => ':attribute maksimal :max karakter.',
         'array' => 'The :attribute may not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -86,7 +86,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => ':attribute minamal :min karakter.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
@@ -94,7 +94,7 @@ return [
     'numeric' => 'The :attribute must be a number.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => ':attribute tidak boleh kosong',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -111,7 +111,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => ':attribute sudah terdaftar',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -144,6 +144,36 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'nomor_asset' => 'Nomor asset',
+        'nomor_seri' => 'Nomor seri',
+        'id_kondisi' => 'Kondisi',
+        'id_tipe' => 'Tipe',
+
+        'nomor_sukucadang' => 'Nomor suku cadang',
+        'nama_sukucadang' => 'Nama suku cadang',
+        'id_kategori_sukucadang' => 'Kategori',
+        'stok' => 'Stok',
+
+        'nik_karyawan' => 'Nik karyawan',
+        'nama_karyawan' => 'Nama karyawan',
+        'jabatan' => 'Jabatan',
+        'no_hp' => 'Nomor Hp/Telp',
+        'alamat' => 'Alamat',
+        'foto_karyawan' => 'Foto karyawan',
+
+        'nama_tipe' => 'Nama tipe',
+        'keterangan_tipe' => 'Keterangan',
+
+        'nama_kondisi' => 'Nama kondisi',
+        'keterangan_kondisi' => 'Keterangan',
+
+        'nama_kategori' => 'Nama kategori',
+        'keterangan_kategori' => 'Keterangan',
+
+        'kode_teknisi' => 'Kode teknisi',
+        'id_karyawan' => 'Nama teknisi',
+
+    ],
 
 ];

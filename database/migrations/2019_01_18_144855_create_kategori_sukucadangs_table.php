@@ -16,7 +16,7 @@ class CreateKategoriSukucadangsTable extends Migration
         Schema::create('kategori_sukucadangs', function (Blueprint $table) {
             $table->increments('id_kategori_sukucadang');
             $table->string('nama_kategori', 25)->unique();
-            $table->string('keterangan', 50);
+            $table->string('keterangan_kategori', 50);
             $table->timestamps();
         });
     }

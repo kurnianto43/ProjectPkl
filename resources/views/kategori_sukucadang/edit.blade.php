@@ -6,8 +6,7 @@ Ubah Data
 @endsection
 
 @section('link')
-<!-- DataTables -->
-  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
 @endsection
 
 @section('content_header')
@@ -25,7 +24,7 @@ Ubah Data
 @section('content')
 <div class="row">
         <div class="col-md-6 col-md-offset-3">
-           <div class="box box-primary">
+           <div class="box box-warning">
             <div class="box-header with-border">
               <h3 class="box-title">Ubah Data</h3>
             </div>
@@ -34,19 +33,29 @@ Ubah Data
             <form role="form" action="{{ route('kategorisukucadang.update', $kategorisukucadang) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nama Kategori</label>
-                  <input type="text" name="nama_kategori" value="{{ $kategorisukucadang->nama_kategori }}" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama kondisi">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Keterangan</label>
-                  <textarea name="keterangan" id="" cols="30" rows="3" class="form-control">{{ $kategorisukucadang->keterangan }}</textarea>
-                </div>
+                <div class="box-body">
+
+                    <div class="form-group {{ $errors->has('nama_kategori') ? ' has-error' : '' }}">
+                         <label for="exampleInputEmail1"><i class="{{ $errors->has('nama_kategori') ? ' fa fa-exclamation-circle' : '' }}"></i> Nama Kategori</label>
+                        <input type="text" name="nama_kategori" value="{{ $kategorisukucadang->nama_kategori }}" class="form-control" id="exampleInputEmail1" placeholder="">
+                            @if ($errors->has('nama_kategori'))      
+                                    <span class="help-block">{{ $errors->first('nama_kategori') }}</span>
+                            @endif
+                    </div>
+
+                    <div class="form-group {{ $errors->has('keterangan_kategori') ? ' has-error' : '' }}">
+                        <label for="exampleInputPassword1"><i class="{{ $errors->has('keterangan_kategori') ? ' fa fa-exclamation-circle' : '' }}"></i> Keterangan</label>
+                        <input type="text" name="keterangan_kategori" value="{{ $kategorisukucadang->keterangan_kategori }}" class="form-control" id="exampleInputPassword1" placeholder="">
+                            @if ($errors->has('keterangan_kategori'))      
+                                    <span class="help-block">{{ $errors->first('keterangan_kategori') }}</span>
+                            @endif
+                    </div>
+
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="{{ route('kategorisukucadang.index') }}" class="btn btn-default pull-right">Kembali</a>
               </div>
             </form>
           </div>

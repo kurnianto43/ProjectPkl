@@ -6,8 +6,7 @@ Tambah Data
 @endsection
 
 @section('link')
-<!-- DataTables -->
-  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
 @endsection
 
 @section('content_header')
@@ -24,35 +23,44 @@ Tambah Data
 
 @section('content')
 <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-           <div class="box box-primary">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Data</h3>
+                <h3 class="box-title">Tambah Data</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="{{ route('kondisi.store') }}" method="POST">
                 {{ csrf_field() }}
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nama Kondisi</label>
-                  <input type="text" name="nama_kondisi" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama kondisi">
+                <div class="box-body">
+                    
+                   <div class="form-group {{ $errors->has('nama_kondisi') ? ' has-error' : '' }}">
+                        <label for="exampleInputEmail1"><i class="{{ $errors->has('nama_kondisi') ? ' fa fa-exclamation-circle' : '' }}"></i> Nama Kondisi</label>
+                        <input type="text" name="nama_kondisi" class="form-control" id="exampleInputEmail1" placeholder="">
+                            @if ($errors->has('nama_kondisi'))      
+                                    <span class="help-block">{{ $errors->first('nama_kondisi') }}</span>
+                            @endif
+                    </div>
+                    
+                    <div class="form-group {{ $errors->has('keterangan_kondisi') ? ' has-error' : '' }}">
+                        <label for="exampleInputPassword1"><i class="{{ $errors->has('keterangan_kondisi') ? ' fa fa-exclamation-circle' : '' }}"></i> Keterangan</label>
+                        <input type="text" name="keterangan_kondisi" class="form-control" id="exampleInputPassword1" placeholder="">
+                            @if ($errors->has('keterangan_kondisi'))      
+                                    <span class="help-block">{{ $errors->first('keterangan_kondisi') }}</span>
+                            @endif
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Keterangan</label>
-                  <input type="text" name="keterangan" class="form-control" id="exampleInputPassword1" placeholder="Masukan keterangan">
+                    <!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <a href="{{ route('kondisi.index') }}" class="btn btn-default pull-right">Kembali</a>
                 </div>
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-          <!-- /.box -->
+             </form>
         </div>
+          <!-- /.box -->
+    </div>
         <!-- /.col -->
-      </div>
+</div>
       <!-- /.row -->
 
 @endsection

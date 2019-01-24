@@ -2,12 +2,12 @@
 
 
 @section('title')
-sukucadang
+Suku cadang
 @endsection
 
 @section('link')
 <!-- DataTables -->
-  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endsection
 
 @section('content_header')
@@ -17,7 +17,7 @@ sukucadang
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-database"></i> Master Data</a></li>
-        <li class="active"><a href="#"> Data Kondisi</a></li>
+        <li class="active"><a href="#"> Data Suku Cadang</a></li>
       </ol>
 @endsection
 
@@ -26,7 +26,8 @@ sukucadang
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Kondisi</h3>
+              <h3 class="box-title">Data Suku Cadang</h3>
+              <a href="" class="btn btn-info pull-right" style="margin-left: 5px">Cetak</a>
               <a href="{{ route('sukucadang.create') }}" class="btn btn-primary pull-right">Tambah</a>
             </div>
             <!-- /.box-header -->
@@ -76,8 +77,8 @@ sukucadang
 
 @section('script')
 <!-- DataTables -->
-<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 
 <script>
   $(function () {

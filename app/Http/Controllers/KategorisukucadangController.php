@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\KategoriSukucadang;
+use Illuminate\Validation\Rule;
 
 class KategorisukucadangController extends Controller
 {
@@ -20,9 +21,14 @@ class KategorisukucadangController extends Controller
 
     public function store()
     {
+        $this->validate(request(), [
+            'nama_kategori' => 'required|unique:kategori_sukucadangs|max:25',
+            'keterangan_kategori' => 'required|max:50',
+        ]);
+
         KategoriSukucadang::create([
             'nama_kategori' => request('nama_kategori'),
-            'keterangan' => request('keterangan')
+            'keterangan_kategori' => request('keterangan_kategori')
         ]);
 
         return redirect()->route('kategorisukucadang.index')->with('success', 'Data berhasil ditambah');
@@ -35,18 +41,24 @@ class KategorisukucadangController extends Controller
 
     public function update(KategoriSukucadang $kategorisukucadang)
     {
-        $kategorisukucadang->update([
-            'nama_kategori' => request('nama_kategori'),
-            'keterangan' => request('keterangan')
+        $this->validate(request(), [
+            'nama_kategori' => Rule::unique('kategori_sukucadangs', 'nama_kategori')->ignore($kategorisukucadang->id_kategori_sukucadang),
+            'nama_kategori' => 'required|max:25',
+            'keterangan_kategori' => 'required|max:50',
         ]);
 
-        return redirect()->route('kategorisukucadang.index')->with('warning', 'Data berhasil diubah');
+        $kategorisukucadang->update([
+            'nama_kategori' => request('nama_kategori'),
+            'keterangan_kategori' => request('keterangan_kategori')
+        ]);
+
+        return redirect()->route('kategorisukucadang.index')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy(KategoriSukucadang $kategorisukucadang)
     {
         $kategorisukucadang->delete();
 
-        return redirect()->route('kategorisukucadang.index')->with('danger', 'Data berhasil dihapus');
+        return redirect()->route('kategorisukucadang.index')->with('success', 'Data berhasil dihapus');
     }
 }

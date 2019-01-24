@@ -2,7 +2,7 @@
 
 
 @section('title')
-Tambah Data
+Ubah Data
 @endsection
 
 @section('link')
@@ -11,20 +11,19 @@ Tambah Data
 
 @section('content_header')
         <h1>
-            Master Data
+            Kulkas
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-database"></i> Master Data</a></li>
-        <li><a href="#"> sukucadang</a></li>
-        <li ><a href="#"> Tambah Data</a></li>
+        <li><a href="#"><i class="fa fa-plug"></i> Kulkas</a></li>
+        <li ><a href="#"> Ubah Data</a></li>
       </ol>
 @endsection
 
 @section('content')
 <div class="row">
         <div class="col-md-8 col-md-offset-2">
-           <div class="box box-primary">
+           <div class="box box-warning">
             <div class="box-header with-border">
               <h3 class="box-title">Tambah Data</h3>
             </div>
@@ -34,49 +33,79 @@ Tambah Data
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
               <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nomor Asset</label>
-                  <input type="text" name="nomor_asset" value="{{ $kulkas->nomor_asset }}" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama sukucadang">
+
+                <div class="form-group {{ $errors->has('nomor_asset') ? ' has-error' : '' }}">
+                  <label for="exampleInputEmail1"><i class="{{ $errors->has('nomor_asset') ? ' fa fa-exclamation-circle' : '' }}"></i> Nomor Asset</label>
+                  <input type="text" name="nomor_asset" value="{{ $kulkas->nomor_asset }}" class="form-control" id="exampleInputEmail1" placeholder="">
+                        @if ($errors->has('nomor_asset'))      
+                            <span class="help-block">{{ $errors->first('nomor_asset') }}</span>
+                        @endif
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nomor Seri</label>
-                  <input type="text" name="nomor_seri" value="{{ $kulkas->nomor_seri }}" class="form-control" id="exampleInputEmail1" placeholder="Masukan nama sukucadang">
+
+                <div class="form-group {{ $errors->has('nomor_seri') ? ' has-error' : '' }}">
+                  <label for="exampleInputEmail1"><i class="{{ $errors->has('nomor_seri') ? ' fa fa-exclamation-circle' : '' }}"></i> Nomor Seri</label>
+                  <input type="text" name="nomor_seri" value="{{ $kulkas->nomor_seri }}" class="form-control" id="exampleInputEmail1" placeholder="">
+                        @if ($errors->has('nomor_seri'))      
+                            <span class="help-block">{{ $errors->first('nomor_seri') }}</span>
+                        @endif
                 </div>
-                <div class="form-group">
-                    <label>Tipe</label>
-                    <select name="id_tipe" class="form-control select2" style="width: 100%;">
-                         <option disabled="disabled" selected="selected">--Pilih--</option>
-                         @foreach($tipes as $tipe)
-                         <option 
-                              value="{{ $tipe -> id_tipe }}"
-                                  @if  ( $tipe->id_tipe === $kulkas->id_tipe )
-                                      selected
-                                  @endif
-                          >
-                          {{ $tipe -> nama_tipe }}
-                          </option>
-                         @endforeach
-                    </select>
-                  </div>
-                <div class="form-group">
-                    <label>Kondisi</label>
-                    <select name="id_kondisi" class="form-control select2" style="width: 100%;">
-                         <option disabled="disabled" selected="selected">--Pilih--</option>
-                         @foreach($kondisis as $kondisi)
-                         <option 
-                              value="{{ $kondisi -> id_kondisi }}"
-                                  @if  ( $kondisi->id_kondisi === $kulkas->id_kondisi )
-                                      selected
-                                  @endif
-                          >
-                          {{ $kondisi -> nama_kondisi }}
-                          </option>
-                         @endforeach
-                    </select>
-                  </div>
+
+                <div class="form-group {{ $errors->has('tanggal_masuk') ? ' has-error' : '' }}">
+                  <label for="exampleInputEmail1"><i class="{{ $errors->has('tanggal_masuk') ? ' fa fa-exclamation-circle' : '' }}"></i> Tanggal Masuk</label>
+                  <input type="text" name="tanggal_masuk" value="{{ $kulkas->tanggal_masuk }}" class="form-control" id="exampleInputEmail1" placeholder="">
+                        @if ($errors->has('tanggal_masuk'))      
+                            <span class="help-block">{{ $errors->first('tanggal_masuk') }}</span>
+                        @endif
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group {{ $errors->has('id_tipe') ? ' has-error' : '' }}">
+                            <label><i class="{{ $errors->has('id_tipe') ? ' fa fa-exclamation-circle' : '' }}"></i> Tipe</label>
+                            <select name="id_tipe" class="form-control select2" style="width: 100%;">
+                                 <option disabled="disabled" selected="selected">--Pilih--</option>
+                                 @foreach($tipes as $tipe)
+                                 <option 
+                                      value="{{ $tipe -> id_tipe }}"
+                                          @if  ( $tipe->id_tipe === $kulkas->id_tipe )
+                                              selected
+                                          @endif
+                                  >
+                                  {{ $tipe -> nama_tipe }}
+                                  </option>
+                                 @endforeach
+                            </select>
+                                @if ($errors->has('id_tipe'))      
+                                    <span class="help-block">{{ $errors->first('id_tipe') }}</span>
+                                @endif
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group {{ $errors->has('id_kondisi') ? ' has-error' : '' }}">
+                            <label><i class="{{ $errors->has('id_kondisi') ? ' fa fa-exclamation-circle' : '' }}"></i> Kondisi</label>
+                            <select name="id_kondisi" class="form-control select2" style="width: 100%;">
+                                 <option disabled="disabled" selected="selected">--Pilih--</option>
+                                 @foreach($kondisis as $kondisi)
+                                 <option 
+                                      value="{{ $kondisi -> id_kondisi }}"
+                                          @if  ( $kondisi->id_kondisi === $kulkas->id_kondisi )
+                                              selected
+                                          @endif
+                                  >
+                                  {{ $kondisi -> nama_kondisi }}
+                                  </option>
+                                 @endforeach
+                            </select>
+                                @if ($errors->has('id_kondisi'))      
+                                    <span class="help-block">{{ $errors->first('id_kondisi') }}</span>
+                                @endif
+                        </div>
+                    </div>
+                </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="{{ route('kulkas.index') }}" class="btn btn-default pull-right">Kembali</a>
               </div>
             </form>
           </div>

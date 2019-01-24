@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tipe extends Model
 {
     protected $primaryKey = 'id_tipe';
-    protected $fillable = ['nama_tipe', 'keterangan'];
+    protected $fillable = ['nama_tipe', 'keterangan_tipe'];
 
     public function kulkas()
     {

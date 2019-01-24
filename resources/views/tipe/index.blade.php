@@ -47,7 +47,7 @@ Tipe
                 <tr>
                     <td>{{ $no }}</td>
                     <td>{{ $tipe->nama_tipe }}</td>
-                    <td>{{ $tipe->keterangan }}</td>
+                    <td>{{ $tipe->keterangan_tipe }}</td>
                     <td>
                       <a href="{{ route('tipe.edit', $tipe) }}" class="btn btn-warning btn-xs">Ubah</a>
                       <form action="{{ route('tipe.destroy', $tipe) }}" method="POST" class="pull-right">

@@ -7,7 +7,7 @@ kondisi
 
 @section('link')
 <!-- DataTables -->
-  <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endsection
 
 @section('content_header')
@@ -47,7 +47,7 @@ kondisi
                 <tr>
                     <td>{{ $no }}</td>
                     <td>{{ $kategorisukucadang->nama_kategori }}</td>
-                    <td>{{ $kategorisukucadang->keterangan }}</td>
+                    <td>{{ $kategorisukucadang->keterangan_kategori }}</td>
                     <td>
                       <a href="{{ route('kategorisukucadang.edit', $kategorisukucadang) }}" class="btn btn-warning btn-xs">Ubah</a>
                       <form action="{{ route('kategorisukucadang.destroy', $kategorisukucadang) }}" method="POST" class="pull-right">
@@ -72,8 +72,8 @@ kondisi
 
 @section('script')
 <!-- DataTables -->
-<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 
 <script>
   $(function () {

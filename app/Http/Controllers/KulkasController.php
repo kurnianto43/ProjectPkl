@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Kulkas;
 use App\Tipe;
 use App\Kondisi;
+use Illuminate\Validation\Rule;
 
 class KulkasController extends Controller
 {
@@ -25,9 +26,18 @@ class KulkasController extends Controller
 
     public function store()
     {
+        $this->validate(request(), [
+            'nomor_asset' => 'required|unique:kulkas|max:7',
+            'nomor_seri' => 'required|max:50',
+            'id_tipe' => 'required',
+            'id_kondisi' => 'required',
+        ]); 
+       
+
         kulkas::create([
             'nomor_asset' => request('nomor_asset'),
             'nomor_seri' => request('nomor_seri'),
+            'tanggal_masuk' => request('tanggal_masuk'),
             'id_tipe' => request('id_tipe'),
             'id_kondisi' => request('id_kondisi')
         ]);
@@ -35,7 +45,7 @@ class KulkasController extends Controller
         return redirect()->route('kulkas.index')->with('success', 'Data berhasil ditambah');
     }
 
-    public function edit(Kulkas $kulkas)
+    public function edit(Request $request, Kulkas $kulkas)
     {
         $tipes = Tipe::all();
         $kondisis = Kondisi::all();
@@ -44,21 +54,30 @@ class KulkasController extends Controller
 
     public function update(Kulkas $kulkas)
     {
+        $this->validate(request(), [
+            'nomor_asset' => Rule::unique('kulkas', 'nomor_asset')->ignore($kulkas->id_kulkas),
+            'nomor_asset' => 'required|max:7',
+            'nomor_seri' => 'required|max:50',
+            'id_tipe' => 'required',
+            'id_kondisi' => 'required',
+        ]); 
+
         $kulkas->update([
             'nomor_asset' => request('nomor_asset'),
             'nomor_seri' => request('nomor_seri'),
+            'tanggal_masuk' => request('tanggal_masuk'),
             'id_tipe' => request('id_tipe'),
             'id_kondisi' => request('id_kondisi')
         ]);
 
-        return redirect()->route('kulkas.index')->with('warning', 'Data berhasil diubah');
+        return redirect()->route('kulkas.index')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy(Kulkas $kulkas)
     {
         $kulkas->delete();
 
-        return redirect()->route('kulkas.index')->with('danger', 'Data berhasil dihapus');
+        return redirect()->route('kulkas.index')->with('success', 'Data berhasil dihapus');
     }
 
 

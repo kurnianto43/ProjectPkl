@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kondisi extends Model
 {
      protected $primaryKey = 'id_kondisi';
-     protected $fillable = ['nama_kondisi', 'keterangan'];
+     protected $fillable = ['nama_kondisi', 'keterangan_kondisi'];
 
     public function kulkas()
     {

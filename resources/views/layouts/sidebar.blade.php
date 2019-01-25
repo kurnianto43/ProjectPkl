@@ -80,6 +80,8 @@
                 <li class="{{ Request::is('kondisi', 'kondisi/tambah-data') ? 'active' : '' }}"><a href="{{ route('kondisi.index') }}"><i class="fa fa-circle-o"></i> Kondisi</a></li>
                 <li class="{{ Request::is('kategori-suku-cadang', 'kategori-suku-cadang/tambah-data') ? 'active' : '' }}"><a href="{{ route('kategorisukucadang.index') }}"><i class="fa fa-circle-o"></i> Kategori Suku cadang</a></li>
                 <li class="{{ Request::is('teknisi', 'teknisi/tambah-data') ? 'active' : '' }}"><a href="{{ route('teknisi.index') }}"><i class="fa fa-circle-o"></i> Teknisi</a></li>
+                <li class=""><a href="{{ route('tipepekerjaan.index') }}"><i class="fa fa-circle-o"></i> Tipe Pekerjaan</a></li>
+                <li class=""><a href="{{ route('jenismasalah.index') }}"><i class="fa fa-circle-o"></i> Jenis Masalah</a></li>
               </ul>
             </li>
        

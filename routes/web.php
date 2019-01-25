@@ -74,3 +74,18 @@ Route::post('/teknisi/tambah-data', 'TeknisiController@store')->name('teknisi.st
 Route::get('/teknisi/{teknisi}/ubah-data', 'TeknisiController@edit')->name('teknisi.edit');
 Route::patch('/teknisi/{teknisi}/ubah-data', 'TeknisiController@update')->name('teknisi.update');
 Route::delete('/teknisi/{teknisi}/hapus', 'TeknisiController@destroy')->name('teknisi.destroy');
+
+Route::get('/tipe-pekerjaan', 'TipepekerjaanController@index')->name('tipepekerjaan.index');
+Route::get('/tipe-pekerjaan/tambah-data', 'TipepekerjaanController@create')->name('tipepekerjaan.create');
+Route::post('/tipe-pekerjaan/tambah-data', 'TipepekerjaanController@store')->name('tipepekerjaan.store');
+Route::get('/tipe-pekerjaan/{tipepekerjaan}/ubah-data', 'TipepekerjaanController@edit')->name('tipepekerjaan.edit');
+Route::patch('/tipe-pekerjaan/{tipepekerjaan}/ubah-data', 'TipepekerjaanController@update')->name('tipepekerjaan.update');
+Route::delete('/tipe-pekerjaan/{tipepekerjaan}/hapus', 'TipepekerjaanController@destroy')->name('tipepekerjaan.destroy');
+
+
+Route::get('/jenis-masalah', 'JenismasalahController@index')->name('jenismasalah.index');
+Route::get('/jenis-masalah/tambah-data', 'JenismasalahController@create')->name('jenismasalah.create');
+Route::post('/jenis-masalah/tambah-data', 'JenismasalahController@store')->name('jenismasalah.store');
+Route::get('/jenis-masalah/{jenismasalah}/ubah-data', 'JenismasalahController@edit')->name('jenismasalah.edit');
+Route::patch('/jenis-masalah/{jenismasalah}/ubah-data', 'JenismasalahController@update')->name('jenismasalah.update');
+Route::delete('/jenis-masalah/{jenismasalah}/hapus', 'JenismasalahController@destroy')->name('jenismasalah.destroy');

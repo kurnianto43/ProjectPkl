@@ -89,3 +89,13 @@ Route::post('/jenis-masalah/tambah-data', 'JenismasalahController@store')->name(
 Route::get('/jenis-masalah/{jenismasalah}/ubah-data', 'JenismasalahController@edit')->name('jenismasalah.edit');
 Route::patch('/jenis-masalah/{jenismasalah}/ubah-data', 'JenismasalahController@update')->name('jenismasalah.update');
 Route::delete('/jenis-masalah/{jenismasalah}/hapus', 'JenismasalahController@destroy')->name('jenismasalah.destroy');
+
+Route::get('/perbaikan', 'PerbaikanController@create')->name('perbaikan.create');
+Route::post('/perbaikan', 'PerbaikanController@store')->name('perbaikan.store');
+
+Route::get('/tagihan', 'TagihanController@index')->name('tagihan.index');
+Route::get('/tagihan/tambah-data', 'TagihanController@create')->name('tagihan.create');
+Route::post('/tagihan/tambah-data', 'TagihanController@store')->name('tagihan.store');
+Route::get('/tagihan/{tagihan}/ubah-data', 'TagihanController@edit')->name('tagihan.edit');
+Route::patch('/tagihan/{tagihan}/ubah-data', 'TagihanController@update')->name('tagihan.update');
+Route::delete('/tagihan/{tagihan}/hapus', 'TagihanController@destroy')->name('tagihan.destroy');

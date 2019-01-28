@@ -47,7 +47,7 @@
               </a>
             </li>
             <li>
-              <a href="../widgets.html">
+              <a href="{{ route('perbaikan.create') }}">
                 <i class="fa fa-cog"></i> <span>Perbaikan</span>
               </a>
             </li>
@@ -57,14 +57,14 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
-                <i class="fa fa-credit-card"></i> <span>Invoice</span>
+              <a>
+                <i class="fa fa-credit-card"></i> <span>Tagihan</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i> Data Kulkas Instore </a></li>
+                <li><a href="{{ route('tagihan.index') }}"><i class="fa fa-circle-o"></i> Data Kulkas Instore </a></li>
                 <li><a href=""><i class="fa fa-circle-o"></i> Data Kulkas Staging</a></li>
               </ul>
             </li>

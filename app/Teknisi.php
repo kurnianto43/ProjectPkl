@@ -8,10 +8,11 @@ class Teknisi extends Model
 {
     protected $primaryKey = 'id_teknisi';
 
-    protected $fillable =['kode_teknisi', 'id_karyawan'];
+    protected $fillable =['kode_teknisi', 'nama_teknisi', 'alamat_teknisi', 'nomor_hp'];
+    
 
-    public function karyawan()
+    public function perbaikan()
     {
-        return $this->belongsTo('App\Karyawan', 'id_karyawan');
+        return $this->hasMany('App\Perbaikan', 'id_perbaikan');
     }
 }

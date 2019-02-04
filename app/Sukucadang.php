@@ -13,4 +13,9 @@ class Sukucadang extends Model
     {
         return $this->belongsTo('App\KategoriSukucadang', 'id_kategori_sukucadang');
     }
+
+    public function perbaikan()
+    {
+        return $this->hasMany('App\Perbaikan', 'pemakaian_sukucadangs', 'id_sukucadang', 'id_perbaikan');
+    }
 }

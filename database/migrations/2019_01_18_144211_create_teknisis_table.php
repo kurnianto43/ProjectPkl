@@ -16,9 +16,10 @@ class CreateTeknisisTable extends Migration
         Schema::create('teknisis', function (Blueprint $table) {
             $table->increments('id_teknisi');
             $table->string('kode_teknisi', 5)->unique();
-            $table->integer('id_karyawan')->unsigned();
+            $table->string('nama_teknisi', 30);
+            $table->string('alamat_teknisi', 100);
+            $table->string('nomor_hp', 13);
             $table->timestamps();
-            $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawans');
         });
     }
 

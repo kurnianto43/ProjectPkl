@@ -19,4 +19,9 @@ class Kulkas extends Model
     {
         return $this->belongsTo('App\Kondisi', 'id_kondisi');
     }
+
+    public function perbaikan()
+    {
+        return $this->hasOne('App\Perbaikan', 'id_perbaikan');
+    }
 }

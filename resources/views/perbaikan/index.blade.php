@@ -2,7 +2,7 @@
 
 
 @section('title')
-Data Kulkas
+Data Perbaikan
 @endsection
 
 @section('link')
@@ -12,11 +12,11 @@ Data Kulkas
 
 @section('content_header')
         <h1>
-            Kulkas
+            Perbaikan
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-plug"></i> Data Instore Kulkas</a></li>
+        <li><a href="#"><i class="fa fa-plug"></i> Data Perbaikan</a></li>
       </ol>
 @endsection
 
@@ -25,9 +25,9 @@ Data Kulkas
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Kulkas</h3>
-              <a href="{{ route('kulkas.create') }}" class="btn btn-info pull-right" style="margin-left: 5px;">Cetak</a>
-              <a href="{{ route('kulkas.create') }}" class="btn btn-primary pull-right">Tambah</a>
+              <h3 class="box-title">Data Perbaikan</h3>
+              <a href="{{ route('kulkas.create') }}" class="btn btn-default pull-right" style="margin-left: 5px;">Cetak</a>
+              <a href="{{ route('perbaikan.create') }}" class="btn btn-primary pull-right">Tambah</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -35,28 +35,28 @@ Data Kulkas
                 <thead>
                 <tr>
                     <th width="5%">No</th>
-                    <th width="25%">Nomor Asset</th>
-                    <th>Nomor Seri</th>
-                    <th>Tanggal Masuk</th>
-                    <th>Tipe</th>
-                    <th>Kondisi</th>
-                    <th width="10%">Aksi</th>
+                    <th width="25%">Nomor Dokumen</th>
+                    <th>Nama Teknisi</th>
+                    <th>Nomor Asset</th>
+                    <th>Tipe Pekerjaan</th>
+                    <th>Tanggal Perbaikan</th>
+                    <th width="11%">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                     <?php $no = 0;?>
-                @foreach($kulkas as $kulkas)
+                @foreach($perbaikans as $perbaikan)
                     <?php $no++ ;?>
                 <tr>
                     <td>{{ $no }}</td>
-                    <td>{{ $kulkas -> nomor_asset }}</td>
-                    <td>{{ $kulkas -> nomor_seri }}</td>
-                    <td>{{ $kulkas -> tanggal_masuk }}</td>
-                    <td>{{ $kulkas -> tipe -> nama_tipe }}</td>
-                    <td>{{ $kulkas -> kondisi -> nama_kondisi }}</td>
+                    <td>{{ $perbaikan -> nomor_dokumen_perbaikan }}</td>
+                    <td>{{ $perbaikan -> teknisi -> nama_teknisi }}</td>
+                    <td>{{ $perbaikan -> kulkas -> nomor_asset }}</td>
+                    <td>{{ $perbaikan -> tipepekerjaan -> kode_tipe_pekerjaan }}</td>
+                    <td>{{ $perbaikan -> tanggal_perbaikan }}</td>
                     <td>
-                      <a href="{{ route('kulkas.edit', $kulkas) }}" class="btn btn-warning btn-xs">Ubah</a>
-                      <form action="{{ route('kulkas.destroy', $kulkas) }}" method="POST" class="pull-right">
+                      <a href="{{ route('perbaikan.details', $perbaikan) }}" class="btn btn-info btn-xs">Rincian</a>
+                      <form action="" method="POST" class="pull-right">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                           <input class="btn btn-danger btn-xs" type="submit" value="Hapus">

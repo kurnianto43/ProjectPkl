@@ -15,8 +15,8 @@ class CreateJenisMasalahsTable extends Migration
     {
         Schema::create('jenis_masalahs', function (Blueprint $table) {
             $table->increments('id_jenis_masalah');
-            $table->string('kode_jenis_masalah', 5);
-            $table->string('keterangan_jenis_masalah', 100);
+            $table->string('kode_masalah', 5)->unique();
+            $table->string('keterangan_masalah', 100);
             $table->timestamps();
         });
     }

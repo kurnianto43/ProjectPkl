@@ -7,34 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 class Perbaikan extends Model
 {
     protected $primaryKey = 'id_perbaikan';
-
-    protected $fillable = ['nomor_dokumen', 'id_teknisi', 'id_kulkas', 'id_tipe_pekerjaan', 'temuan_masalah', 'id_sukucadang', 'jumlah_sukucadang', 'tanggal_perbaikan'];
-
-    public function setTemuanmasalahAttribute($temuan_masalah)
-    {
-        $this->attributes['temuan_masalah'] = json_encode($temuan_masalah);
-    }
-
-
-    public function kulkas()
-    {
-        return $this->hasOne('App\Kulkas', 'id_kulkas');
-    }
+    protected $fillable = ['nomor_dokumen_perbaikan', 'id_teknisi', 'id_kulkas', 'id_jenis_masalah', 'id_sukucadang', 'jumlah_sukucadang', 'id_tipe_pekerjaan', 'tanggal_perbaikan'];
 
 
     public function teknisi()
     {
-        return $this->hasOne('App\Teknisi', 'id_teknisi');
+        return $this->belongsTo('App\Teknisi', 'id_teknisi');
+    }
+
+    public function kulkas()
+    {
+        return $this->belongsTo('App\Kulkas', 'id_kulkas');   
     }
 
     public function tipepekerjaan()
     {
-        return $this->hasOne('App\TipePekerjaan', 'id_tipe_pekerjaan');
+        return $this->belongsTo('App\TipePekerjaan', 'id_tipe_pekerjaan');
     }
 
-   
+    public function jenismasalah()
+    {
+        return $this->belongsTo('App\JenisMasalah', 'id_jenis_masalah');
+    }   
+
     public function sukucadang()
     {
-        return $this->hasMany('App\Sukucadang', 'id_sukucadang');
-    }
+        return $this->belongsTo('App\Sukucadang', 'id_sukucadang');
+    }    
 }

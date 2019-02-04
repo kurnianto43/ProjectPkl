@@ -37,6 +37,8 @@ Teknisi
                     <th width="5%">No</th>
                     <th width="25%">Kode Teknisi</th>
                     <th>Nama Teknisi</th>
+                    <th>Alamat</th>
+                    <th>Nomor Hp</th>
                     <th width="10%">Aksi</th>
                 </tr>
                 </thead>
@@ -47,10 +49,12 @@ Teknisi
                 <tr>
                     <td>{{ $no }}</td>
                     <td>{{ $teknisi -> kode_teknisi }}</td>
-                    <td>{{ $teknisi -> karyawan -> nama_karyawan }}</td>
+                    <td>{{ $teknisi -> nama_teknisi }}</td>
+                    <td>{{ $teknisi -> alamat_teknisi }}</td>
+                    <td>{{ $teknisi -> nomor_hp }}</td>
                     <td>
-                      <a href="{{ route('teknisi.edit', $teknisi) }}" class="btn btn-warning btn-xs">Ubah</a>
-                      <form action="{{ route('teknisi.destroy', $teknisi) }}" method="POST" class="pull-right">
+                      <a href="" class="btn btn-warning btn-xs">Ubah</a>
+                      <form action="" method="POST" class="pull-right">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                           <input class="btn btn-danger btn-xs" type="submit" value="Hapus">

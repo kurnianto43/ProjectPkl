@@ -9,34 +9,47 @@ use App\Kulkas;
 use App\TipePekerjaan;
 use App\JenisMasalah;
 use App\Sukucadang;
+use Illuminate\Support\Facades\DB;
 
 class PerbaikanController extends Controller
 {
     public function create()
     {
+        $sukucadangs = Sukucadang::all();
         $teknisis = Teknisi::all();
         $kulkas = Kulkas::all();
         $tipepekerjaans = TipePekerjaan::all();
-        $sukucadangs = Sukucadang::all();
-        return view('perbaikan.tambah', compact('teknisis', 'kulkas', 'tipepekerjaans', 'jenismasalahs', 'sukucadangs'));
+        $jenis_masalahs = JenisMasalah::all();
+        return view('perbaikan.tambah', compact('teknisis', 'kulkas', 'tipepekerjaans', 'jenis_masalahs', 'sukucadangs'));
     }
 
 
     public function store(Request $request)
     {
 
+      //untuk many to many
+        // $perbaikan = new Perbaikan;
+
+        // $perbaikan->nomor_dokumen_perbaikan = $request->nomor_dokumen_perbaikan;
+        // $perbaikan->id_teknisi = $request->id_teknisi;
+        // $perbaikan->id_kulkas = $request->id_kulkas;
+        // $perbaikan->id_tipe_pekerjaan = $request->id_tipe_pekerjaan;
+        // $perbaikan->tanggal_perbaikan = $request->tanggal_perbaikan;
+
+        // $perbaikan->save();
+
+        // $perbaikan->jenismasalah()->sync($request->jenismasalah, false);
 
         $data = ([
-                'nomor_dokumen' => request('nomor_dokumen'),
+                'nomor_dokumen_perbaikan' => request('nomor_dokumen_perbaikan'),
                 'id_teknisi' => request('id_teknisi'),
                 'id_kulkas' => request('id_kulkas'),
+                'id_jenis_masalah' => request('id_jenis_masalah'),
                 'id_tipe_pekerjaan' => request('id_tipe_pekerjaan'),
-                'temuan_masalah' => request('temuan_masalah'),
                 'id_sukucadang' => request('id_sukucadang'),
-                'tanggal_perbaikan' => request('tanggal_perbaikan'),
-                'jumlah_sukucadang' => request('jumlah_sukucadang')
+                'jumlah_sukucadang' => request('jumlah_sukucadang'),
+                'tanggal_perbaikan' => request('tanggal_perbaikan')
         ]);
-
 
         Perbaikan::create($data);
 
@@ -44,6 +57,47 @@ class PerbaikanController extends Controller
         $sukucadang->stok -= $request->jumlah_sukucadang;
         $sukucadang->save();
 
-        return redirect()->route('sukucadang.index');
+        return redirect()->route('perbaikan.index')->with('success', 'data berhasil disimpan');
+
+    }
+
+
+    public function index()
+    {
+        $perbaikans = Perbaikan::all();
+        return view('perbaikan.index', compact('perbaikans'));
+    }
+
+    public function  details(Perbaikan $perbaikan)
+    {
+        return view('perbaikan.detail', compact('perbaikan'));
+    }
+
+    public function edit(Perbaikan $perbaikan)
+    {
+        $sukucadangs = Sukucadang::all();
+        $teknisis = Teknisi::all();
+        $kulkas = Kulkas::all();
+        $tipepekerjaans = TipePekerjaan::all();
+        $jenis_masalahs = JenisMasalah::all();
+
+        return view('perbaikan.edit', compact('perbaikan', 'sukucadangs', 'teknisis', 'kulkas', 'tipepekerjaans', 'jenis_masalahs'));
+    }
+
+    public function update(Request $request, Perbaikan $perbaikan)
+    {
+        $data = ([
+                'nomor_dokumen_perbaikan' => request('nomor_dokumen_perbaikan'),
+                'id_teknisi' => request('id_teknisi'),
+                'id_kulkas' => request('id_kulkas'),
+                'id_jenis_masalah' => request('id_jenis_masalah'),
+                'id_tipe_pekerjaan' => request('id_tipe_pekerjaan'),
+                'id_sukucadang' => request('id_sukucadang'),
+                'jumlah_sukucadang' => request('jumlah_sukucadang'),
+                'tanggal_perbaikan' => request('tanggal_perbaikan')
+        ]);
+
+        $perbaikan->update($data);
+        return redirect()->route('perbaikan.index')->with('success', 'Berhasil');
     }
 }

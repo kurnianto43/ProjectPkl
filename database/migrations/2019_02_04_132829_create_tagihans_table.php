@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTemuanMasalahsTable extends Migration
+class CreateTagihansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateTemuanMasalahsTable extends Migration
      */
     public function up()
     {
-        Schema::create('temuan_masalahs', function (Blueprint $table) {
-            $table->increments('id_temuan_masalah');
+        Schema::create('tagihans', function (Blueprint $table) {
+            $table->increments('id_tagihan');
+            $table->string('nomor_dokumen', 25);
             $table->integer('id_perbaikan')->unsigned();
-            $table->integer('id_jenis_masalah')->unsigned();
+            $table->string('periode_perbaikan', 20);
             $table->timestamps();
             $table->foreign('id_perbaikan')->references('id_perbaikan')->on('perbaikans');
-            $table->foreign('id_jenis_masalah')->references('id_jenis_masalah')->on('jenis_masalahs');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateTemuanMasalahsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temuan_masalahs');
+        Schema::dropIfExists('tagihans');
     }
 }

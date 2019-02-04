@@ -148,6 +148,7 @@ return [
         'nomor_asset' => 'Nomor asset',
         'nomor_seri' => 'Nomor seri',
         'id_kondisi' => 'Kondisi',
+        'tanggal_masuk' => 'Tanggal masuk',
         'id_tipe' => 'Tipe',
 
         'nomor_sukucadang' => 'Nomor suku cadang',

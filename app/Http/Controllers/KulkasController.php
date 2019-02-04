@@ -29,6 +29,7 @@ class KulkasController extends Controller
         $this->validate(request(), [
             'nomor_asset' => 'required|unique:kulkas|max:7',
             'nomor_seri' => 'required|max:50',
+            'tanggal_masuk' => 'required',
             'id_tipe' => 'required',
             'id_kondisi' => 'required',
         ]); 
@@ -58,6 +59,7 @@ class KulkasController extends Controller
             'nomor_asset' => Rule::unique('kulkas', 'nomor_asset')->ignore($kulkas->id_kulkas),
             'nomor_asset' => 'required|max:7',
             'nomor_seri' => 'required|max:50',
+            'tanggal_masuk' => 'required',
             'id_tipe' => 'required',
             'id_kondisi' => 'required',
         ]); 

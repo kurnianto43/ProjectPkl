@@ -92,10 +92,14 @@ Route::delete('/jenis-masalah/{jenismasalah}/hapus', 'JenismasalahController@des
 
 Route::get('/perbaikan', 'PerbaikanController@create')->name('perbaikan.create');
 Route::post('/perbaikan', 'PerbaikanController@store')->name('perbaikan.store');
+Route::get('/data-perbaikan', 'PerbaikanController@index')->name('perbaikan.index');
+Route::get('/data-perbaikan/{perbaikan}/rincian', 'PerbaikanController@details')->name('perbaikan.details');
+Route::get('/data-perbaikan/{perbaikan}/ubah-data', 'PerbaikanController@edit')->name('perbaikan.edit');
+Route::patch('/data-perbaikan/{perbaikan}/ubah-data', 'PerbaikanController@update')->name('perbaikan.update');
 
-Route::get('/tagihan', 'TagihanController@index')->name('tagihan.index');
-Route::get('/tagihan/tambah-data', 'TagihanController@create')->name('tagihan.create');
-Route::post('/tagihan/tambah-data', 'TagihanController@store')->name('tagihan.store');
-Route::get('/tagihan/{tagihan}/ubah-data', 'TagihanController@edit')->name('tagihan.edit');
-Route::patch('/tagihan/{tagihan}/ubah-data', 'TagihanController@update')->name('tagihan.update');
-Route::delete('/tagihan/{tagihan}/hapus', 'TagihanController@destroy')->name('tagihan.destroy');
+Route::get('/tagihan', 'TagihanController@create')->name('tagihan.create');
+Route::post('/tagihan', 'TagihanController@store')->name('tagihan.store');
+Route::get('/data-tagihan', 'TagihanController@index')->name('tagihan.index');
+Route::get('/data-tagihan/{tagihan}/rincian', 'TagihanController@details')->name('tagihan.details');
+Route::get('/data-tagihan/{tagihan}/ubah-data', 'TagihanController@edit')->name('tagihan.edit');
+Route::patch('/data-tagihan/{tagihan}/ubah-data', 'TagihanController@update')->name('tagihan.update');

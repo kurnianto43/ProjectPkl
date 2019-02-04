@@ -52,7 +52,7 @@ Ubah Data
 
                 <div class="form-group {{ $errors->has('tanggal_masuk') ? ' has-error' : '' }}">
                   <label for="exampleInputEmail1"><i class="{{ $errors->has('tanggal_masuk') ? ' fa fa-exclamation-circle' : '' }}"></i> Tanggal Masuk</label>
-                  <input type="text" name="tanggal_masuk" value="{{ $kulkas->tanggal_masuk }}" class="form-control" id="exampleInputEmail1" placeholder="">
+                  <input type="date" name="tanggal_masuk" value="{{ $kulkas->tanggal_masuk }}" class="form-control" id="exampleInputEmail1" placeholder="">
                         @if ($errors->has('tanggal_masuk'))      
                             <span class="help-block">{{ $errors->first('tanggal_masuk') }}</span>
                         @endif

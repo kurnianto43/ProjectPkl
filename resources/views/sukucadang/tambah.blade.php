@@ -50,26 +50,35 @@ Tambah Data
                             @endif
                     </div>
 
-                    <div class="form-group {{ $errors->has('id_kategori_sukucadang') ? ' has-error' : '' }}">
-                        <label><i class="{{ $errors->has('id_kategori_sukucadang') ? ' fa fa-exclamation-circle' : '' }}"></i> Kategori</label>
-                        <select name="id_kategori_sukucadang" class="form-control select2" style="width: 100%;">
-                            <option disabled="disabled" selected="selected">--Pilih--</option>
-                                @foreach($kategorisukucadangs as $kategorisukucadang)
-                                <option value="{{ $kategorisukucadang -> id_kategori_sukucadang }}">{{ $kategorisukucadang -> nama_kategori }}</option>
-                                @endforeach
-                        </select>
-                            @if ($errors->has('id_kategori_sukucadang'))      
-                                    <span class="help-block">{{ $errors->first('id_kategori_sukucadang') }}</span>
-                            @endif
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group {{ $errors->has('id_kategori_sukucadang') ? ' has-error' : '' }}">
+                                <label><i class="{{ $errors->has('id_kategori_sukucadang') ? ' fa fa-exclamation-circle' : '' }}"></i> Kategori</label>
+                                <select name="id_kategori_sukucadang" class="form-control select2" style="width: 100%;">
+                                    <option disabled="disabled" selected="selected">--Pilih--</option>
+                                        @foreach($kategorisukucadangs as $kategorisukucadang)
+                                        <option value="{{ $kategorisukucadang -> id_kategori_sukucadang }}">{{ $kategorisukucadang -> nama_kategori }}</option>
+                                        @endforeach
+                                </select>
+                                    @if ($errors->has('id_kategori_sukucadang'))      
+                                            <span class="help-block">{{ $errors->first('id_kategori_sukucadang') }}</span>
+                                    @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group {{ $errors->has('stok') ? ' has-error' : '' }}">
+                                <label for="exampleInputPassword1"><i class="{{ $errors->has('stok') ? ' fa fa-exclamation-circle' : '' }}"></i> Stok</label>
+                                <input type="number" name="stok" class="form-control" id="exampleInputPassword1" placeholder="">
+                                    @if ($errors->has('stok'))      
+                                            <span class="help-block">{{ $errors->first('stok') }}</span>
+                                    @endif
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-group {{ $errors->has('stok') ? ' has-error' : '' }}">
-                        <label for="exampleInputPassword1"><i class="{{ $errors->has('stok') ? ' fa fa-exclamation-circle' : '' }}"></i> Stok</label>
-                        <input type="number" name="stok" class="form-control" id="exampleInputPassword1" placeholder="">
-                            @if ($errors->has('stok'))      
-                                    <span class="help-block">{{ $errors->first('stok') }}</span>
-                            @endif
-                    </div>
+                    
+
+                    
 
                 </div>
               <!-- /.box-body -->

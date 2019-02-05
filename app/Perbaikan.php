@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Perbaikan extends Model
 {
     protected $primaryKey = 'id_perbaikan';
-    protected $fillable = ['nomor_dokumen_perbaikan', 'id_teknisi', 'id_kulkas', 'id_jenis_masalah', 'id_sukucadang', 'jumlah_sukucadang', 'id_tipe_pekerjaan', 'tanggal_perbaikan'];
+    protected $guarded = [];
 
 
     public function teknisi()
@@ -33,5 +33,10 @@ class Perbaikan extends Model
     public function sukucadang()
     {
         return $this->belongsTo('App\Sukucadang', 'id_sukucadang');
+    }
+
+    public function tagihan()
+    {
+        return $this->belongsTo('App\Tagihan', 'id_tagihan');
     }    
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagihansTable extends Migration
+class AddColoumnInPerbaikansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTagihansTable extends Migration
      */
     public function up()
     {
-        Schema::create('tagihans', function (Blueprint $table) {
-            $table->increments('id_tagihan');
-            $table->string('nomor_dokumen', 25);
-            $table->string('periode_perbaikan', 20);
-            $table->timestamps();
+        Schema::table('perbaikans', function (Blueprint $table) {
+            $table->integer('biaya_perbaikan')->after('tanggal_perbaikan');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateTagihansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tagihans');
+        Schema::table('perbaikans', function (Blueprint $table) {
+            //
+        });
     }
 }

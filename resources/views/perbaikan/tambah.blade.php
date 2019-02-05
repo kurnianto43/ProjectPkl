@@ -40,6 +40,18 @@ Tambah Data
                             @endif
                     </div>
 
+                            <div class="form-group">
+                                <label>Periode Tagihan</label>
+                                <select name="id_tagihan" class="form-control select2" style="width: 100%;">
+                                   <option disabled="disabled" selected="selected"></option>
+                                       @foreach($tagihans as $tagihan)
+                                   <option value="{{$tagihan->id_tagihan}}">{{ $tagihan -> periode_tagihan}}</option>
+                                       @endforeach
+                                </select>
+                                  
+                            </div>
+                        
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group {{ $errors->has('id_teknisi') ? ' has-error' : '' }}">
@@ -123,7 +135,10 @@ Tambah Data
                           <input name="jumlah_sukucadang" type="number" class="form-control">
                         </div>
                     </div>
-                    
+                    <div class="form-group">
+                      <label for="">Biaya Perbaikan</label>
+                      <input type="number" name="biaya_perbaikan" class="form-control">
+                    </div>
                     
               <!-- /.box-body -->
               <div class="box-footer">

@@ -36,26 +36,20 @@ Data Tagihan
                 <tr>
                     <th width="5%">No</th>
                     <th width="25%">Nomor Dokumen</th>
-                    <th>Nama Teknisi</th>
-                    <th>Nomor Asset</th>
-                    <th>Tipe Pekerjaan</th>
-                    <th>Tanggal Perbaikan</th>
+                    <th>Periode Tagihan</th>
                     <th width="11%">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <?php $no = 0;?>
-                @foreach($perbaikans as $perbaikan)
+                  <?php $no = 0;?>
+              @foreach($tagihans as $tagihan)
                     <?php $no++ ;?>
                 <tr>
                     <td>{{ $no }}</td>
-                    <td>{{ $perbaikan -> nomor_dokumen_perbaikan }}</td>
-                    <td>{{ $perbaikan -> teknisi -> nama_teknisi }}</td>
-                    <td>{{ $perbaikan -> kulkas -> nomor_asset }}</td>
-                    <td>{{ $perbaikan -> tipepekerjaan -> kode_tipe_pekerjaan }}</td>
-                    <td>{{ $perbaikan -> tanggal_perbaikan }}</td>
+                    <td>{{ $tagihan -> nomor_dokumen }}</td>
+                    <td>{{ $tagihan -> periode_tagihan }}</td>
                     <td>
-                      <a href="" class="btn btn-info btn-xs">Rincian</a>
+                      <a href="{{ route('tagihan.detail', $tagihan) }}" class="btn btn-info btn-xs">Rincian</a>
                       <form action="" method="POST" class="pull-right">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}

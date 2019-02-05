@@ -99,6 +99,7 @@ Route::patch('/data-perbaikan/{perbaikan}/ubah-data', 'PerbaikanController@updat
 
 Route::get('/tagihan', 'TagihanController@create')->name('tagihan.create');
 Route::post('/tagihan', 'TagihanController@store')->name('tagihan.store');
+Route::get('/tagihan/{tagihan}/rincian', 'TagihanController@detail')->name('tagihan.detail');
 Route::get('/data-tagihan', 'TagihanController@index')->name('tagihan.index');
 Route::get('/data-tagihan/{tagihan}/rincian', 'TagihanController@details')->name('tagihan.details');
 Route::get('/data-tagihan/{tagihan}/ubah-data', 'TagihanController@edit')->name('tagihan.edit');

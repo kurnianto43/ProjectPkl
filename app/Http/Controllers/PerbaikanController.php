@@ -10,6 +10,7 @@ use App\TipePekerjaan;
 use App\JenisMasalah;
 use App\Sukucadang;
 use Illuminate\Support\Facades\DB;
+use App\Tagihan;
 
 class PerbaikanController extends Controller
 {
@@ -20,7 +21,8 @@ class PerbaikanController extends Controller
         $kulkas = Kulkas::all();
         $tipepekerjaans = TipePekerjaan::all();
         $jenis_masalahs = JenisMasalah::all();
-        return view('perbaikan.tambah', compact('teknisis', 'kulkas', 'tipepekerjaans', 'jenis_masalahs', 'sukucadangs'));
+        $tagihans = Tagihan::all();
+        return view('perbaikan.tambah', compact('teknisis', 'kulkas', 'tipepekerjaans', 'jenis_masalahs', 'sukucadangs', 'tagihans'));
     }
 
 
@@ -42,13 +44,15 @@ class PerbaikanController extends Controller
 
         $data = ([
                 'nomor_dokumen_perbaikan' => request('nomor_dokumen_perbaikan'),
+                'id_tagihan' => request('id_tagihan'),
                 'id_teknisi' => request('id_teknisi'),
                 'id_kulkas' => request('id_kulkas'),
                 'id_jenis_masalah' => request('id_jenis_masalah'),
                 'id_tipe_pekerjaan' => request('id_tipe_pekerjaan'),
                 'id_sukucadang' => request('id_sukucadang'),
                 'jumlah_sukucadang' => request('jumlah_sukucadang'),
-                'tanggal_perbaikan' => request('tanggal_perbaikan')
+                'tanggal_perbaikan' => request('tanggal_perbaikan'),
+                'biaya_perbaikan' => request('biaya_perbaikan')
         ]);
 
         Perbaikan::create($data);

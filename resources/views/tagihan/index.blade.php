@@ -22,11 +22,10 @@ Data Tagihan
 
 @section('content')
 <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-10 col-md-offset-1">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Tagihan</h3>
-              <a href="{{ route('tagihan.create') }}" class="btn btn-default pull-right" style="margin-left: 5px;">Cetak</a>
               <a href="{{ route('tagihan.create') }}" class="btn btn-primary pull-right">Tambah</a>
             </div>
             <!-- /.box-header -->
@@ -35,9 +34,9 @@ Data Tagihan
                 <thead>
                 <tr>
                     <th width="5%">No</th>
-                    <th width="25%">Nomor Dokumen</th>
+                    <th width="35%">Nomor Dokumen</th>
                     <th>Periode Tagihan</th>
-                    <th width="11%">Aksi</th>
+                    <th width="12%">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,8 +48,8 @@ Data Tagihan
                     <td>{{ $tagihan -> nomor_dokumen }}</td>
                     <td>{{ $tagihan -> periode_tagihan }}</td>
                     <td>
-                      <a href="{{ route('tagihan.detail', $tagihan) }}" class="btn btn-info btn-xs">Rincian</a>
-                      <form action="" method="POST" class="pull-right">
+                      <a href="{{ route('tagihan.laporan', $tagihan) }}" class="btn btn-default btn-xs">Cetak</a>
+                      <form action="{{ route('tagihan.destroy', $tagihan) }}" method="POST" class="pull-right">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                           <input class="btn btn-danger btn-xs" type="submit" value="Hapus">

@@ -44,12 +44,15 @@ Route::patch('/kategori-suku-cadang/{kategorisukucadang}/ubah-data', 'Kategorisu
 Route::delete('/kategori-suku-cadang/{kategorisukucadang}/hapus', 'KategorisukucadangController@destroy')->name('kategorisukucadang.destroy');
 
 
+
+
 Route::get('/suku-cadang', 'SukucadangController@index')->name('sukucadang.index');
 Route::get('/suku-cadang/tambah-data', 'SukucadangController@create')->name('sukucadang.create');
 Route::post('/suku-cadang/tambah-data', 'SukucadangController@store')->name('sukucadang.store');
 Route::get('/suku-cadang/{sukucadang}/ubah-data', 'SukucadangController@edit')->name('sukucadang.edit');
 Route::patch('/suku-cadang/{sukucadang}/ubah-data', 'SukucadangController@update')->name('sukucadang.update');
 Route::delete('/suku-cadang/{sukucadang}/hapus', 'SukucadangController@destroy')->name('sukucadang.destroy');
+Route::get('/suku-cadang/download', 'SukucadangController@laporan')->name('sukucadang.laporan');
 
 
 Route::get('/kulkas', 'KulkasController@index')->name('kulkas.index');
@@ -57,6 +60,7 @@ Route::get('/kulkas/tambah-data', 'KulkasController@create')->name('kulkas.creat
 Route::post('/kulkas/tambah-data', 'KulkasController@store')->name('kulkas.store');
 Route::get('/kulkas/{kulkas}/ubah-data', 'KulkasController@edit')->name('kulkas.edit');
 Route::patch('/kulkas/{kulkas}/ubah-data', 'KulkasController@update')->name('kulkas.update');
+Route::get('/kulkas/download', 'KulkasController@laporan')->name('kulkas.laporan');
 Route::delete('/kulkas/{kulkas}/hapus', 'KulkasController@destroy')->name('kulkas.destroy');
 
 
@@ -96,11 +100,11 @@ Route::get('/data-perbaikan', 'PerbaikanController@index')->name('perbaikan.inde
 Route::get('/data-perbaikan/{perbaikan}/rincian', 'PerbaikanController@details')->name('perbaikan.details');
 Route::get('/data-perbaikan/{perbaikan}/ubah-data', 'PerbaikanController@edit')->name('perbaikan.edit');
 Route::patch('/data-perbaikan/{perbaikan}/ubah-data', 'PerbaikanController@update')->name('perbaikan.update');
+Route::delete('/data-perbaikan/{perbaikan}/hapus-data', 'PerbaikanController@destroy')->name('perbaikan.destroy');
 
 Route::get('/tagihan', 'TagihanController@create')->name('tagihan.create');
 Route::post('/tagihan', 'TagihanController@store')->name('tagihan.store');
-Route::get('/tagihan/{tagihan}/rincian', 'TagihanController@detail')->name('tagihan.detail');
 Route::get('/data-tagihan', 'TagihanController@index')->name('tagihan.index');
-Route::get('/data-tagihan/{tagihan}/rincian', 'TagihanController@details')->name('tagihan.details');
-Route::get('/data-tagihan/{tagihan}/ubah-data', 'TagihanController@edit')->name('tagihan.edit');
+Route::get('/tagihan/{tagihan}/download', 'TagihanController@laporan')->name('tagihan.laporan');
 Route::patch('/data-tagihan/{tagihan}/ubah-data', 'TagihanController@update')->name('tagihan.update');
+Route::delete('/tagihan/{tagihan}/hapus', 'TagihanController@destroy')->name('tagihan.destroy');

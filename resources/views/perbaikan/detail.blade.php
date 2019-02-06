@@ -66,6 +66,13 @@ Data Perbaikan
                                     {{ $perbaikan -> jenismasalah -> kode_masalah }} - {{ $perbaikan -> jenismasalah -> keterangan_masalah }}
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Periode Tagihan</td>
+                                <td>:</td>
+                                <td>
+                                    {{ $perbaikan -> tagihan -> periode_tagihan }}
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </div>

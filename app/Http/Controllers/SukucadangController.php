@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Sukucadang;
 use App\KategoriSukucadang;
 use Illuminate\Validation\Rule;
+use PDF;
 
 class SukucadangController extends Controller
 {
@@ -71,5 +72,13 @@ class SukucadangController extends Controller
         $sukucadang->delete();
 
         return redirect()->route('sukucadang.index')->with('success', 'Data berhasil dihapus');
+    }
+
+    public function laporan()
+    {
+        $sukucadangs = sukucadang::all();
+        $pdf = PDF::loadView('sukucadang.cetaklaporan', compact('sukucadangs'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->download('data-suku-cadang.pdf', compact('sukucadangs'));
     }
 }

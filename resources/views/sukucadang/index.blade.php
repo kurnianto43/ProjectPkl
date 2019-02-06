@@ -27,7 +27,7 @@ Suku cadang
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Suku Cadang</h3>
-              <a href="" class="btn btn-info pull-right" style="margin-left: 5px">Cetak</a>
+              <a href="{{ route('sukucadang.laporan') }}" class="btn btn-info pull-right" style="margin-left: 5px">Cetak</a>
               <a href="{{ route('sukucadang.create') }}" class="btn btn-primary pull-right">Tambah</a>
             </div>
             <!-- /.box-header -->

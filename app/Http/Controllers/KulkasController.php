@@ -7,6 +7,7 @@ use App\Kulkas;
 use App\Tipe;
 use App\Kondisi;
 use Illuminate\Validation\Rule;
+use PDF;
 
 class KulkasController extends Controller
 {
@@ -35,7 +36,7 @@ class KulkasController extends Controller
         ]); 
        
 
-        kulkas::create([
+        Kulkas::create([
             'nomor_asset' => request('nomor_asset'),
             'nomor_seri' => request('nomor_seri'),
             'tanggal_masuk' => request('tanggal_masuk'),
@@ -82,5 +83,12 @@ class KulkasController extends Controller
         return redirect()->route('kulkas.index')->with('success', 'Data berhasil dihapus');
     }
 
+    public function laporan()
+    {
+        $kulkas = Kulkas::all();
+        $pdf = PDF::loadView('kulkas.cetaklaporan', compact('kulkas'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->download('kulkas-instore.pdf', compact('kulkas'));
+    }
 
 }

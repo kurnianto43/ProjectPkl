@@ -56,7 +56,7 @@ Data Perbaikan
                     <td>{{ $perbaikan -> tanggal_perbaikan }}</td>
                     <td>
                       <a href="{{ route('perbaikan.details', $perbaikan) }}" class="btn btn-info btn-xs">Rincian</a>
-                      <form action="" method="POST" class="pull-right">
+                      <form action="{{ route('perbaikan.destroy', $perbaikan) }}" method="POST" class="pull-right">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                           <input class="btn btn-danger btn-xs" type="submit" value="Hapus">

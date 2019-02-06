@@ -16,6 +16,6 @@ class Sukucadang extends Model
 
     public function perbaikan()
     {
-        return $this->hasMany('App\Perbaikan', 'pemakaian_sukucadangs', 'id_sukucadang', 'id_perbaikan');
+        return $this->hasMany('App\Perbaikan', 'id_perbaikan');
     }
 }

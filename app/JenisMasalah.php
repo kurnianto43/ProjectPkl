@@ -13,6 +13,6 @@ class JenisMasalah extends Model
 
      public function perbaikan()
     {
-        return $this->hasMany('App\Perbaikan', 'temuan_masalahs', 'id_jenis_masalah', 'id_perbaikan');
+        return $this->hasMany('App\Perbaikan', 'id_perbaikan');
     }
 }

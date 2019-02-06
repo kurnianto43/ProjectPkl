@@ -65,6 +65,7 @@ Tambah Data
                                     @if ($errors->has('id_teknisi'))      
                                             <span class="help-block">{{ $errors->first('id_teknisi') }}</span>
                                     @endif
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">

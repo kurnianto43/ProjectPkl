@@ -12,6 +12,6 @@ class Tagihan extends Model
 
     public function perbaikan()
     {
-        return $this->hasMany('App\Perbaikan', 'id_perbaikan');
+        return $this->hasMany('App\Perbaikan', 'id_tagihan');
     }
 }

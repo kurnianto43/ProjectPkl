@@ -104,4 +104,11 @@ class PerbaikanController extends Controller
         $perbaikan->update($data);
         return redirect()->route('perbaikan.index')->with('success', 'Berhasil');
     }
+
+    public function destroy(Perbaikan $perbaikan)
+    {
+        $perbaikan->delete();
+
+        return redirect()->route('perbaikan.index')->with('success', 'Data berhasil dihapus');
+    }
 }

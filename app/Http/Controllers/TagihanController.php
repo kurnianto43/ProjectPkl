@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Tagihan;
 use App\Perbaikan;
 use Illuminate\Support\Facades\DB;
+use PDF;
+use Carbon\Carbon;
 
 class TagihanController extends Controller
 {
@@ -15,14 +17,22 @@ class TagihanController extends Controller
         return view('tagihan.index', compact('tagihans', 'data'));
     }
 
-    public function detail(Tagihan $tagihan)
+    public function laporan(Tagihan $tagihan)
     {
+
         $data = DB::table('perbaikans')
                 ->where('id_tagihan', $tagihan->id_tagihan)
                 ->sum('biaya_perbaikan');
 
+        $item = DB::table('perbaikans')
+                ->where('id_tagihan', $tagihan->id_tagihan)
+                ->count('biaya_perbaikan');
 
-        return view('tagihan.detail', compact('data', 'tagihan'));
+
+        $tgl = Carbon::now()->format('d, F Y');
+        $pdf = PDF::loadView('tagihan.cetaklaporan', compact('tagihan', 'data', 'item', 'tgl'));
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->download('tagihan.pdf', compact('tagihan', 'data', 'item', 'tgl'));
     }
 
     public function create()
@@ -46,8 +56,10 @@ class TagihanController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy(Tagihan $tagihan)
     {
+        $tagihan->delete();
 
+        return redirect()->route('tagihan.index');
     }
 }

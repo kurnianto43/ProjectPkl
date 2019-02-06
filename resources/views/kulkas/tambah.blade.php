@@ -34,7 +34,7 @@ Tambah Data
                 <div class="box-body">
                     <div class="form-group {{ $errors->has('nomor_asset') ? ' has-error' : '' }}">
                         <label for="exampleInputEmail1"><i class="{{ $errors->has('nomor_asset') ? ' fa fa-exclamation-circle' : '' }}"></i> Nomor Asset</label>
-                        <input type="text" name="nomor_asset" class="form-control" id="exampleInputEmail1" placeholder="">
+                        <input type="text" name="nomor_asset" value="{{ old('nomor_asset') }}" class="form-control" id="exampleInputEmail1" placeholder="">
                             @if ($errors->has('nomor_asset'))      
                                     <span class="help-block">{{ $errors->first('nomor_asset') }}</span>
                             @endif
@@ -42,7 +42,7 @@ Tambah Data
 
                     <div class="form-group {{ $errors->has('nomor_seri') ? ' has-error' : '' }}">
                         <label for="exampleInputEmail1"><i class="{{ $errors->has('nomor_seri') ? ' fa fa-exclamation-circle' : '' }}"></i> Nomor Seri</label>
-                        <input type="text" name="nomor_seri" class="form-control" id="exampleInputEmail1" placeholder="">
+                        <input type="text" name="nomor_seri" value="{{ old('nomor_seri') }}" class="form-control" id="exampleInputEmail1" placeholder="">
                             @if ($errors->has('nomor_seri'))      
                                     <span class="help-block">{{ $errors->first('nomor_seri') }}</span>
                             @endif
@@ -50,7 +50,7 @@ Tambah Data
 
                     <div class="form-group {{ $errors->has('tanggal_masuk') ? ' has-error' : '' }}">
                         <label for="exampleInputEmail1"><i class="{{ $errors->has('tanggal_masuk') ? ' fa fa-exclamation-circle' : '' }}"></i> Tanggal masuk</label>
-                        <input type="date" name="tanggal_masuk" class="form-control" id="exampleInputEmail1" placeholder="">
+                        <input type="date" name="tanggal_masuk" value="{{ old('tanggal_masuk') }}" class="form-control" id="exampleInputEmail1" placeholder="">
                             @if ($errors->has('tanggal_masuk'))      
                                     <span class="help-block">{{ $errors->first('tanggal_masuk') }}</span>
                             @endif

@@ -45,22 +45,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>Rp 50juta</h3>
-
-              <p>Tagihan</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-credit-card"></i>
-            </div>
-            <a href="#" class="small-box-footer">
-              Rincian... <i class="fa fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
+       
         <!-- ./col -->
       </div>
       <!-- /.row -->

@@ -26,7 +26,7 @@ Data Kulkas
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Kulkas</h3>
-              <a href="{{ route('kulkas.create') }}" class="btn btn-info pull-right" style="margin-left: 5px;">Cetak</a>
+              <a href="{{ route('kulkas.laporan') }}" class="btn btn-info pull-right" style="margin-left: 5px;">Cetak</a>
               <a href="{{ route('kulkas.create') }}" class="btn btn-primary pull-right">Tambah</a>
             </div>
             <!-- /.box-header -->

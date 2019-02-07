@@ -44,31 +44,39 @@
     <table align="center" style="margin-top: 30px;">
                                     <thead>
                                         <tr>
-                                            <th colspan="4" style="text-align: center;">CV.DZAKI USAHA MANDIRI</th>
+                                            <th colspan="4" style="text-align: center;">
+                                            <br>
+                                            CV.DZAKI USAHA MANDIRI
+                                            <br>
+                                            <br>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td style="background-color: #f0f0f0;" colspan="2">Nomor Dokumen : {{ $tagihan -> nomor_dokumen }}</td>
-                                            <td style="background-color: #f0f0f0;" colspan="2">Periode : {{ $tagihan -> periode_tagihan }}</td>
+                                            <td style="background-color: #ff7c7c;" colspan="2">Nomor Dokumen : {{ $tagihan -> nomor_dokumen }}</td>
+                                            <td style="background-color: #ff7c7c;" colspan="2">Periode : {{ $tagihan -> periode_tagihan }}</td>
                                         </tr>
                                         <tr>
                                             <td colspan="4">
+                                                <br>
                                                 Perusahaan : CV.Dzaki Usaha Mandiri <br>
                                                 Alamat : Jalan Taruna Praja RT.004 RW.001 <br>
                                                 Kel. Sungai Sipai Kec. Martapura <br>
                                                 Kab. Banjar <br>
                                                 081311125617 <br>
                                                 Email : cv.dzaki@gmail.com
+                                                <br>
+                                                <br>
 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="background-color: #f0f0f0;" colspan="1">Total Item</td>
+                                            <td style="background-color: #ff7c7c;" colspan="1">Total Item</td>
                                             <td  colspan="3">{{ $item }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="background-color: #f0f0f0;" colspan="1">Total Tagihan</td>
+                                            <td style="background-color: #ff7c7c;" colspan="1">Total Tagihan</td>
                                             <td colspan="3">Rp {{number_format ($data, 2, ',', '.') }}</td>
                                         </tr>
                                         <tr>
@@ -90,8 +98,6 @@
                                     </tbody>
                                 </table>
 
-                                <br>
-                                <br>
                                 <br>
                                 <br>
                                 <br>

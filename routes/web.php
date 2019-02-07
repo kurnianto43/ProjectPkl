@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/beranda', 'HomeController@index')->name('beranda');
 
+Route::get('/edit-profil', 'UserController@edit')->name('editprofil');
+Route::post('/edit-profil', 'UserController@update');
 
 Route::get('/tipe', 'TipeController@index')->name('tipe.index');
 Route::get('/tipe/tambah-data', 'TipeController@create')->name('tipe.create');

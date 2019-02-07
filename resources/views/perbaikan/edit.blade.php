@@ -2,7 +2,7 @@
 
 
 @section('title')
-Tambah Data
+Ubah Data Perbaikan
 @endsection
 
 @section('link')
@@ -15,17 +15,17 @@ Tambah Data
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-plug"></i> Kulkas</a></li>
-        <li ><a href="#"> Tambah Data</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Perbaikan</a></li>
+        <li class="active">Ubah Data</li>
       </ol>
 @endsection
 
 @section('content')
 <div class="row">
         <div class="col-md-8 col-md-offset-2">
-           <div class="box box-primary">
+           <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Data</h3>
+              <h3 class="box-title">Ubah Data</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

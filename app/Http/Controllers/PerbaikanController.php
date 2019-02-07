@@ -30,7 +30,7 @@ class PerbaikanController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
-            'nomor_dokumen_perbaikan' => 'required|unique:perbaikans',
+            'nomor_dokumen_perbaikan' => 'required|unique:perbaikans|max:24',
             'id_tagihan' => 'required',
             'id_teknisi' => 'required',
             'id_kulkas' => 'required|unique:perbaikans',
@@ -90,6 +90,21 @@ class PerbaikanController extends Controller
 
     public function update(Request $request, Perbaikan $perbaikan)
     {
+
+        $this->validate(request(), [
+            'nomor_dokumen_perbaikan' => Rule::unique('perbaikan', 'nomor_dokumen_perbaikan')->ignore($perbaikan->id_perbaikan),
+            'nomor_dokumen_perbaikan' => 'required|max:24',
+            'id_tagihan' => 'required',
+            'id_teknisi' => 'required',
+            'id_kulkas' => 'required|unique:perbaikans',
+            'id_jenis_masalah' => 'required',
+            'id_tipe_pekerjaan' => 'required',
+            'id_sukucadang' => 'required',
+            'jumlah_sukucadang' => 'required',
+            'tanggal_perbaikan' => 'required',
+            'biaya_perbaikan' => 'required',
+        ]);
+
         $data = ([
                 'nomor_dokumen_perbaikan' => request('nomor_dokumen_perbaikan'),
                 'id_teknisi' => request('id_teknisi'),
@@ -102,7 +117,7 @@ class PerbaikanController extends Controller
         ]);
 
         $perbaikan->update($data);
-        return redirect()->route('perbaikan.index')->with('success', 'Berhasil');
+        return redirect()->route('perbaikan.index')->with('success', 'Data telah diubah');
     }
 
     public function destroy(Perbaikan $perbaikan)

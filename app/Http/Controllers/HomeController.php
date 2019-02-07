@@ -27,9 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $kulkascount = Kulkas::count();
         $perbaikancount = Perbaikan::count();
-        return view('beranda.index', compact('kulkascount', 'perbaikancount', 'data'));
+        return view('beranda.index', compact('kulkascount', 'perbaikancount'));
     }
 }

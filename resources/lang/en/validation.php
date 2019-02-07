@@ -177,6 +177,18 @@ return [
         'alamat_teknisi' => 'Alamat teknisi',
         'nomor_hp' => 'Nomor hp',
 
+        'nomor_dokumen_perbaikan' => 'Nomor dokumen',
+        'id_tagihan' => 'Periode tagihan',
+        'id_teknisi' => 'Teknisi',
+        'id_kulkas' => 'Nomor asset',
+        'tanggal_perbaikan' => 'Tanggal perbaikan',
+        'id_tipe_pekerjaan' => 'Tipe pekerjaan',
+        'id_jenis_masalah' => 'Temuan masalah',
+        'id_sukucadang' => 'Suku cadang',
+        'jumlah_sukucadang' => 'Qty',
+        'biaya_perbaikan' => 'Biaya perbaikan'
+
+
     ],
 
 ];

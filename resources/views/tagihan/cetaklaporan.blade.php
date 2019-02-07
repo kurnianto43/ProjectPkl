@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CV.Dzaki Usaha Mandiri</title>
+    <title>Data Tagihan CV.Dzaki Usaha Mandiri</title>
     
       <style>
         body 
@@ -120,6 +120,7 @@
                                             <th>Nomor Dokumen</th>
                                             <th>Nomor Asset</th>
                                             <th>Tipe Pekerjaan</th>
+                                            <th>Biaya Perbaikan</th>
                                             <th>Tanggal Perbaikan</th>
                                         </tr>
                                     </thead>
@@ -132,7 +133,8 @@
                                             <td>{{ $perbaikan -> nomor_dokumen_perbaikan }}</td>
                                             <td>{{ $perbaikan -> kulkas -> nomor_asset  }}</td>
                                             <td>{{ $perbaikan -> tipepekerjaan -> kode_tipe_pekerjaan }}</td>
-                                            <td>{{ $perbaikan -> tanggal_perbaikan }}</td>
+                                            <td>Rp {{ number_format ($perbaikan -> biaya_perbaikan, 2, ',', '.') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($perbaikan -> tanggal_perbaikan)->format('d/m/Y')}}</td>
                                         </tr>
 
                                        @endforeach

@@ -11,12 +11,12 @@ Tambah Data
 
 @section('content_header')
         <h1>
-            Kulkas
+            Perbaikan
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-plug"></i> Kulkas</a></li>
-        <li ><a href="#"> Tambah Data</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Perbaikan</a></li>
+        <li class="active">Tambah Data</li>
       </ol>
 @endsection
 
@@ -40,14 +40,17 @@ Tambah Data
                             @endif
                     </div>
 
-                            <div class="form-group">
-                                <label>Periode Tagihan</label>
+                            <div class="form-group {{ $errors->has('id_tagihan') ? ' has-error' : '' }}">
+                                <label><i class="{{ $errors->has('id_tagihan') ? ' fa fa-exclamation-circle' : '' }}"></i> Periode Tagihan</label>
                                 <select name="id_tagihan" class="form-control select2" style="width: 100%;">
                                    <option disabled="disabled" selected="selected"></option>
                                        @foreach($tagihans as $tagihan)
                                    <option value="{{$tagihan->id_tagihan}}">{{ $tagihan -> periode_tagihan}}</option>
                                        @endforeach
                                 </select>
+                                  @if ($errors->has('id_tagihan'))      
+                                    <span class="help-block">{{ $errors->first('id_tagihan') }}</span>
+                                  @endif
                                   
                             </div>
                         
@@ -110,34 +113,50 @@ Tambah Data
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Temuan masalah</label>
+                            <div class="form-group {{ $errors->has('id_jenis_masalah') ? ' has-error' : '' }}">
+                                <label><i class="{{ $errors->has('id_jenis_masalah') ? ' fa fa-exclamation-circle' : '' }}"></i> Temuan masalah</label>
                                 <select name="id_jenis_masalah" class="form-control select2" style="width: 100%;">
                                   <option value="" disabled="disabled" selected="selected"></option>
                                        @foreach($jenis_masalahs as $jenis_masalah)
                                    <option value="{{ $jenis_masalah -> id_jenis_masalah }}">{{ $jenis_masalah -> kode_masalah }}</option>
                                        @endforeach
                                 </select>
+                                    @if ($errors->has('id_jenis_masalah'))      
+                                            <span class="help-block">{{ $errors->first('id_jenis_masalah') }}</span>
+                                    @endif
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Suku Cadang</label>
+                            <div class="form-group {{ $errors->has('id_sukucadang') ? ' has-error' : '' }}">
+                                <label><i class="{{ $errors->has('id_sukucadang') ? ' fa fa-exclamation-circle' : '' }}"></i> Suku Cadang</label>
                                 <select name="id_sukucadang" class="form-control select2" style="width: 100%;">
+                                  <option value="" disabled selected hidden>-- Pilih --</option>
                                        @foreach($sukucadangs as $sukucadang)
                                    <option value="{{ $sukucadang -> id_sukucadang }}">{{ $sukucadang -> nama_sukucadang }}</option>
                                        @endforeach
                                 </select>
+                                    @if ($errors->has('id_sukucadang'))      
+                                            <span class="help-block">{{ $errors->first('id_sukucadang') }}</span>
+                                    @endif
                             </div>
                         </div>
                         <div class="col-md-2">
-                          <label for="">Qty</label>
-                          <input name="jumlah_sukucadang" type="number" class="form-control">
+                          <div class="form-group {{ $errors->has('jumlah_sukucadang') ? ' has-error' : '' }}">
+                            <label for=""><i class="{{ $errors->has('jumlah_sukucadang') ? ' fa fa-exclamation-circle' : '' }}"></i> Qty</label>
+                            <input name="jumlah_sukucadang" type="number" class="form-control">
+                                @if ($errors->has('jumlah_sukucadang'))      
+                                            <span class="help-block">{{ $errors->first('jumlah_sukucadang') }}</span>
+                                @endif
+                          </div>
+                          
                         </div>
                     </div>
-                    <div class="form-group">
-                      <label for="">Biaya Perbaikan</label>
+                    <div class="form-group {{ $errors->has('biaya_perbaikan') ? ' has-error' : '' }}">
+                      <label for=""><i class="{{ $errors->has('biaya_perbaikan') ? ' fa fa-exclamation-circle' : '' }}"></i> Biaya Perbaikan</label>
                       <input type="number" name="biaya_perbaikan" class="form-control">
+                          @if ($errors->has('biaya_perbaikan'))      
+                                            <span class="help-block">{{ $errors->first('biaya_perbaikan') }}</span>
+                           @endif
                     </div>
                     
               <!-- /.box-body -->

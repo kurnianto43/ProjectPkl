@@ -93,7 +93,7 @@
               </a>
               <ul class="treeview-menu">
                 <li class="{{ Request::is('perbaikan', 'data-perbaikan') ? 'active' : '' }}"><a href="{{ route('perbaikan.index') }}"><i class="fa fa-circle-o"></i> Data Perbaikan </a></li>
-                <li class=""><a href="{{ route('perbaikan.create') }}"><i class="fa fa-circle-o"></i> Tambah Perbaikan</a></li>
+                <li class=""><a href="{{ route('perbaikan.create') }}"><i class="fa fa-circle-o"></i> Tambah Data Perbaikan</a></li>
               </ul>
             </li>
             

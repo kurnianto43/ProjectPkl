@@ -93,9 +93,9 @@ Route::get('/jenis-masalah/{jenismasalah}/ubah-data', 'JenismasalahController@ed
 Route::patch('/jenis-masalah/{jenismasalah}/ubah-data', 'JenismasalahController@update')->name('jenismasalah.update');
 Route::delete('/jenis-masalah/{jenismasalah}/hapus', 'JenismasalahController@destroy')->name('jenismasalah.destroy');
 
-Route::get('/perbaikan', 'PerbaikanController@create')->name('perbaikan.create');
-Route::post('/perbaikan', 'PerbaikanController@store')->name('perbaikan.store');
-Route::get('/data-perbaikan', 'PerbaikanController@index')->name('perbaikan.index');
+Route::get('/tambah-data-perbaikan', 'PerbaikanController@create')->name('perbaikan.create');
+Route::post('/tambah-data-perbaikan', 'PerbaikanController@store')->name('perbaikan.store');
+Route::get('/perbaikan', 'PerbaikanController@index')->name('perbaikan.index');
 Route::get('/data-perbaikan/{perbaikan}/rincian', 'PerbaikanController@details')->name('perbaikan.details');
 Route::get('/data-perbaikan/{perbaikan}/ubah-data', 'PerbaikanController@edit')->name('perbaikan.edit');
 Route::patch('/data-perbaikan/{perbaikan}/ubah-data', 'PerbaikanController@update')->name('perbaikan.update');

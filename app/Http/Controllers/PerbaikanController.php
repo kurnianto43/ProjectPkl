@@ -11,6 +11,7 @@ use App\JenisMasalah;
 use App\Sukucadang;
 use Illuminate\Support\Facades\DB;
 use App\Tagihan;
+use Carbon\Carbon;
 
 class PerbaikanController extends Controller
 {
@@ -28,19 +29,18 @@ class PerbaikanController extends Controller
 
     public function store(Request $request)
     {
-
-      //untuk many to many
-        // $perbaikan = new Perbaikan;
-
-        // $perbaikan->nomor_dokumen_perbaikan = $request->nomor_dokumen_perbaikan;
-        // $perbaikan->id_teknisi = $request->id_teknisi;
-        // $perbaikan->id_kulkas = $request->id_kulkas;
-        // $perbaikan->id_tipe_pekerjaan = $request->id_tipe_pekerjaan;
-        // $perbaikan->tanggal_perbaikan = $request->tanggal_perbaikan;
-
-        // $perbaikan->save();
-
-        // $perbaikan->jenismasalah()->sync($request->jenismasalah, false);
+        $this->validate(request(), [
+            'nomor_dokumen_perbaikan' => 'required|unique:perbaikans',
+            'id_tagihan' => 'required',
+            'id_teknisi' => 'required',
+            'id_kulkas' => 'required|unique:perbaikans',
+            'id_jenis_masalah' => 'required',
+            'id_tipe_pekerjaan' => 'required',
+            'id_sukucadang' => 'required',
+            'jumlah_sukucadang' => 'required',
+            'tanggal_perbaikan' => 'required',
+            'biaya_perbaikan' => 'required',
+        ]);
 
         $data = ([
                 'nomor_dokumen_perbaikan' => request('nomor_dokumen_perbaikan'),

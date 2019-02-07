@@ -16,7 +16,8 @@ Data Perbaikan
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-plug"></i> Data Perbaikan</a></li>
+        <li><a href="#"><i class="fa fa-plug"></i> Perbaikan</a></li>
+        <li class="active">Data Perbaikan</li>
       </ol>
 @endsection
 
@@ -35,8 +36,8 @@ Data Perbaikan
                 <thead>
                 <tr>
                     <th width="5%">No</th>
-                    <th width="25%">Nomor Dokumen</th>
-                    <th>Nama Teknisi</th>
+                    <th width="20%">Nomor Dokumen</th>
+                    <th width="20%">Nama Teknisi</th>
                     <th>Nomor Asset</th>
                     <th>Tipe Pekerjaan</th>
                     <th>Tanggal Perbaikan</th>

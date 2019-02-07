@@ -105,5 +105,6 @@ Route::get('/tagihan', 'TagihanController@create')->name('tagihan.create');
 Route::post('/tagihan', 'TagihanController@store')->name('tagihan.store');
 Route::get('/data-tagihan', 'TagihanController@index')->name('tagihan.index');
 Route::get('/tagihan/{tagihan}/download', 'TagihanController@laporan')->name('tagihan.laporan');
+Route::get('/data-tagihan/{tagihan}/ubah-data', 'TagihanController@edit')->name('tagihan.edit');
 Route::patch('/data-tagihan/{tagihan}/ubah-data', 'TagihanController@update')->name('tagihan.update');
 Route::delete('/tagihan/{tagihan}/hapus', 'TagihanController@destroy')->name('tagihan.destroy');

@@ -16,7 +16,8 @@ Data Tagihan
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-plug"></i> Data Tagihan</a></li>
+        <li><a href="#"><i class="fa fa-plug"></i> Tagihan</a></li>
+        <li class="active">Data Tagihan</li>
       </ol>
 @endsection
 
@@ -49,11 +50,7 @@ Data Tagihan
                     <td>{{ $tagihan -> periode_tagihan }}</td>
                     <td>
                       <a href="{{ route('tagihan.laporan', $tagihan) }}" class="btn btn-default btn-xs">Cetak</a>
-                      <form action="{{ route('tagihan.destroy', $tagihan) }}" method="POST" class="pull-right">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                          <input class="btn btn-danger btn-xs" type="submit" value="Hapus">
-                      </form>
+                      <a href="{{ route('tagihan.edit', $tagihan) }}" class="btn btn-warning btn-xs">Ubah</a>
                     </td>
                 </tr>
                 @endforeach

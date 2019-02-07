@@ -43,7 +43,6 @@ class TagihanController extends Controller
     public function store()
     {
         Tagihan::create([
-
             'nomor_dokumen' => request('nomor_dokumen'),
             'periode_tagihan' => request('periode_tagihan')
         ]);
@@ -51,20 +50,19 @@ class TagihanController extends Controller
         return redirect()->route('tagihan.index');
     }
 
-    public function edit()
+    public function edit(Tagihan $tagihan)
     {
-        return view('tagihan.edit');
+        return view('tagihan.edit', compact('tagihan'));
     }
 
-    public function update()
+    public function update(Tagihan $tagihan)
     {
+        $tagihan->update([
+            'nomor_dokumen' => request('nomor_dokumen'),
+            'periode_tagihan' => request('periode_tagihan')
+        ]);
 
+        return redirect()->route('tagihan.index')->with('success', 'Data telah diubah');
     }
 
-    public function destroy(Tagihan $tagihan)
-    {
-        $tagihan->delete();
-
-        return redirect()->route('tagihan.index');
-    }
 }

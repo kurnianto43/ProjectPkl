@@ -97,7 +97,7 @@
               </ul>
             </li>
             
-            <li class="{{ Request::is('tagihan', 'tagihan/tambah-data') ? 'active' : '' }}">
+            <li class="{{ Request::is('data-tagihan') ? 'active' : '' }}">
               <a href="{{ route('tagihan.index') }}">
                 <i class="fa fa-credit-card"></i> <span>Tagihan</span>
               </a>

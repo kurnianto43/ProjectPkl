@@ -41,25 +41,11 @@ Tambah Data
                     </div>
 
                     <div class="form-group {{ $errors->has('periode_perbaikan') ? ' has-error' : '' }}">
-                        <label for="exampleInputEmail1"><i class="{{ $errors->has('periode_perbaikan') ? ' fa fa-exclamation-circle' : '' }}"></i> Nomor Seri</label>
-                        <input type="text" name="periode_perbaikan" class="form-control" id="exampleInputEmail1" placeholder="">
+                        <label for="exampleInputEmail1"><i class="{{ $errors->has('periode_perbaikan') ? ' fa fa-exclamation-circle' : '' }}"></i> Periode</label>
+                        <input type="text" name="periode_tagihan" class="form-control" id="exampleInputEmail1" placeholder="">
                             @if ($errors->has('periode_perbaikan'))      
                                     <span class="help-block">{{ $errors->first('periode_perbaikan') }}</span>
                             @endif
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Nomor dokumen perbaikan</label>
-                                <select name="perbaikans[]" class="form-control select2" multiple="multiple" style="width: 100%;">
-                                   
-                                       @foreach($perbaikans as $perbaikan)
-                                   <option value="{{ $perbaikan -> id_perbaikan }}">{{ $perbaikan -> nomor_dokumen_perbaikan }}</option>
-                                       @endforeach
-                                </select>
-                            </div>
-                        </div>
                     </div>
                     
               <!-- /.box-body -->

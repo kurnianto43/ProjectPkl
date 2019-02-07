@@ -8,6 +8,7 @@ use App\Tipe;
 use App\Kondisi;
 use Illuminate\Validation\Rule;
 use PDF;
+use Carbon\Carbon;
 
 class KulkasController extends Controller
 {
@@ -29,7 +30,7 @@ class KulkasController extends Controller
     {
         $this->validate(request(), [
             'nomor_asset' => 'required|unique:kulkas|max:7',
-            'nomor_seri' => 'required|max:50',
+            'nomor_seri' => 'required|unique:kulkas|max:50',
             'tanggal_masuk' => 'required',
             'id_tipe' => 'required',
             'id_kondisi' => 'required',
@@ -59,6 +60,7 @@ class KulkasController extends Controller
         $this->validate(request(), [
             'nomor_asset' => Rule::unique('kulkas', 'nomor_asset')->ignore($kulkas->id_kulkas),
             'nomor_asset' => 'required|max:7',
+            'nomor_seri' => Rule::unique('kulkas', 'nomor_seri')->ignore($kulkas->id_kulkas),
             'nomor_seri' => 'required|max:50',
             'tanggal_masuk' => 'required',
             'id_tipe' => 'required',
@@ -85,10 +87,11 @@ class KulkasController extends Controller
 
     public function laporan()
     {
+        $tgl = Carbon::now()->format('d F Y');
         $kulkas = Kulkas::all();
-        $pdf = PDF::loadView('kulkas.cetaklaporan', compact('kulkas'));
+        $pdf = PDF::loadView('kulkas.cetaklaporan', compact('kulkas', 'tgl'));
         $pdf->setPaper('a4', 'portrait');
-        return $pdf->download('kulkas-instore.pdf', compact('kulkas'));
+        return $pdf->download('kulkas-instore.pdf', compact('kulkas', 'tgl'));
     }
 
 }

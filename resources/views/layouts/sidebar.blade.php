@@ -37,7 +37,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li class="{{ Request::is('kulkas', 'kulkas/tambah-data') ? 'active' : '' }}"><a href="{{ route('kulkas.index') }}"><i class="fa fa-circle-o"></i> Data Kulkas Instore </a></li>
+                <li class="{{ Request::is('kulkas') ? 'active' : '' }}"><a href="{{ route('kulkas.index') }}"><i class="fa fa-circle-o"></i> Data Kulkas </a></li>
+                <li class="{{ Request::is('kulkas/tambah-data') ? 'active' : '' }}"><a href="{{ route('kulkas.create') }}"><i class="fa fa-circle-o"></i> Tambah Data Kulkas </a></li>
               </ul>
             </li>
             <li class="{{ Request::is('suku-cadang') ? 'active' : '' }}">

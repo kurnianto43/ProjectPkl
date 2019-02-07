@@ -37,13 +37,18 @@ class TagihanController extends Controller
 
     public function create()
     {
-        $perbaikans = Perbaikan::all();
-        return view('tagihan.tambah', compact('perbaikans'));
+        return view('tagihan.tambah');
     }
 
     public function store()
     {
+        Tagihan::create([
 
+            'nomor_dokumen' => request('nomor_dokumen'),
+            'periode_tagihan' => request('periode_tagihan')
+        ]);
+
+        return redirect()->route('tagihan.index');
     }
 
     public function edit()

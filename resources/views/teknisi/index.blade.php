@@ -12,12 +12,12 @@ Teknisi
 
 @section('content_header')
         <h1>
-            Master Data
+            Teknisi
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-database"></i> Master Data</a></li>
-        <li class="active"><a href="#"> Data Teknisi</a></li>
+        <li><a href="#"><i class="fa fa-users"></i> Teknisi</a></li>
+        <li class="active">Data Teknisi</li>
       </ol>
 @endsection
 
@@ -27,6 +27,7 @@ Teknisi
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Teknisi</h3>
+              <a style="margin-left: 5px" href="{{ route('teknisi.laporan') }}" class="btn btn-default pull-right">Cetak</a>
               <a href="{{ route('teknisi.create') }}" class="btn btn-primary pull-right">Tambah</a>
             </div>
             <!-- /.box-header -->
@@ -35,10 +36,10 @@ Teknisi
                 <thead>
                 <tr>
                     <th width="5%">No</th>
-                    <th width="25%">Kode Teknisi</th>
+                    <th width="15%">Kode Teknisi</th>
                     <th>Nama Teknisi</th>
-                    <th>Alamat</th>
-                    <th>Nomor Hp</th>
+                    <th width="35%">Alamat</th>
+                    <th width="15%">Nomor Hp</th>
                     <th width="10%">Aksi</th>
                 </tr>
                 </thead>
@@ -53,8 +54,8 @@ Teknisi
                     <td>{{ $teknisi -> alamat_teknisi }}</td>
                     <td>{{ $teknisi -> nomor_hp }}</td>
                     <td>
-                      <a href="" class="btn btn-warning btn-xs">Ubah</a>
-                      <form action="" method="POST" class="pull-right">
+                      <a href="{{ route('teknisi.edit', $teknisi) }}" class="btn btn-warning btn-xs">Ubah</a>
+                      <form action="{{ route('teknisi.destroy', $teknisi) }}" method="POST" class="pull-right">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                           <input class="btn btn-danger btn-xs" type="submit" value="Hapus">

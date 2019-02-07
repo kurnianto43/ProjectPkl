@@ -12,11 +12,11 @@ Suku cadang
 
 @section('content_header')
         <h1>
-            Master Data
+            Suku Cadang
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-database"></i> Master Data</a></li>
+        <li><a href="#"><i class="fa fa-cogs"></i> Suku Cadang</a></li>
         <li class="active"><a href="#"> Data Suku Cadang</a></li>
       </ol>
 @endsection

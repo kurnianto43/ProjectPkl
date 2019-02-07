@@ -16,7 +16,7 @@ Tambah Data
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-plug"></i> Kulkas</a></li>
-        <li ><a href="#"> Tambah Data</a></li>
+        <li class="active">Tambah Data</li>
       </ol>
 @endsection
 

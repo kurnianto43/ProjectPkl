@@ -173,7 +173,9 @@ return [
         'keterangan_kategori' => 'Keterangan',
 
         'kode_teknisi' => 'Kode teknisi',
-        'id_karyawan' => 'Nama teknisi',
+        'nama_teknisi' => 'Nama teknisi',
+        'alamat_teknisi' => 'Alamat teknisi',
+        'nomor_hp' => 'Nomor hp',
 
     ],
 

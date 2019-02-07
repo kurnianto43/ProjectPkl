@@ -11,13 +11,12 @@ Ubah Data
 
 @section('content_header')
         <h1>
-            Master Data
+            Suku Cadang
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-database"></i> Master Data</a></li>
-        <li><a href="#"> Suku Cadang</a></li>
-        <li ><a href="#"> Ubah Data</a></li>
+        <li><a href="#"><i class="fa fa-cogs"></i> Suku Cadang</a></li>
+        <li class="active">Ubah Data</li>
       </ol>
 @endsection
 

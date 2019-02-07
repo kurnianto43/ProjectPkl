@@ -44,8 +44,6 @@ Route::patch('/kategori-suku-cadang/{kategorisukucadang}/ubah-data', 'Kategorisu
 Route::delete('/kategori-suku-cadang/{kategorisukucadang}/hapus', 'KategorisukucadangController@destroy')->name('kategorisukucadang.destroy');
 
 
-
-
 Route::get('/suku-cadang', 'SukucadangController@index')->name('sukucadang.index');
 Route::get('/suku-cadang/tambah-data', 'SukucadangController@create')->name('sukucadang.create');
 Route::post('/suku-cadang/tambah-data', 'SukucadangController@store')->name('sukucadang.store');
@@ -64,12 +62,12 @@ Route::get('/kulkas/download', 'KulkasController@laporan')->name('kulkas.laporan
 Route::delete('/kulkas/{kulkas}/hapus', 'KulkasController@destroy')->name('kulkas.destroy');
 
 
-Route::get('/karyawan', 'KaryawanController@index')->name('karyawan.index');
-Route::get('/karyawan/tambah-data', 'KaryawanController@create')->name('karyawan.create');
-Route::post('/karyawan/tambah-data', 'KaryawanController@store')->name('karyawan.store');
-Route::get('/karyawan/{karyawan}/ubah-data', 'KaryawanController@edit')->name('karyawan.edit');
-Route::patch('/karyawan/{karyawan}/ubah-data', 'KaryawanController@update')->name('karyawan.update');
-Route::delete('/karyawan/{karyawan}/hapus', 'KaryawanController@destroy')->name('karyawan.destroy');
+// Route::get('/karyawan', 'KaryawanController@index')->name('karyawan.index');
+// Route::get('/karyawan/tambah-data', 'KaryawanController@create')->name('karyawan.create');
+// Route::post('/karyawan/tambah-data', 'KaryawanController@store')->name('karyawan.store');
+// Route::get('/karyawan/{karyawan}/ubah-data', 'KaryawanController@edit')->name('karyawan.edit');
+// Route::patch('/karyawan/{karyawan}/ubah-data', 'KaryawanController@update')->name('karyawan.update');
+// Route::delete('/karyawan/{karyawan}/hapus', 'KaryawanController@destroy')->name('karyawan.destroy');
 
 
 Route::get('/teknisi', 'TeknisiController@index')->name('teknisi.index');
@@ -78,6 +76,7 @@ Route::post('/teknisi/tambah-data', 'TeknisiController@store')->name('teknisi.st
 Route::get('/teknisi/{teknisi}/ubah-data', 'TeknisiController@edit')->name('teknisi.edit');
 Route::patch('/teknisi/{teknisi}/ubah-data', 'TeknisiController@update')->name('teknisi.update');
 Route::delete('/teknisi/{teknisi}/hapus', 'TeknisiController@destroy')->name('teknisi.destroy');
+Route::get('/teknisi/download', 'TeknisiController@laporan')->name('teknisi.laporan');
 
 Route::get('/tipe-pekerjaan', 'TipepekerjaanController@index')->name('tipepekerjaan.index');
 Route::get('/tipe-pekerjaan/tambah-data', 'TipepekerjaanController@create')->name('tipepekerjaan.create');

@@ -16,7 +16,8 @@ Data Kulkas
         </h1>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-plug"></i> Data Instore Kulkas</a></li>
+        <li><a href="#"><i class="fa fa-plug"></i> Kulkas</a></li>
+        <li class="active">Data Kulkas</li>
       </ol>
 @endsection
 

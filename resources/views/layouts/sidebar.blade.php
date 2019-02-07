@@ -61,13 +61,28 @@
                   </a>
                 </li>
               </ul>
-            </li>               
-            
-            <li class="{{ Request::is('teknisi', 'teknisi/tambah-data') ? 'active' : '' }}">
-              <a href="{{ route('teknisi.index') }}">
-                <i class="fa fa-users"></i> <span>Teknisi</span>
-              </a>
             </li>
+
+            <li class="treeview {{ Request::is('teknisi', 'teknisi/tambah-data') ? 'active' : '' }}">
+              <a href="#">
+                <i class="fa fa-users"></i> <span>Teknisi</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="{{ Request::is('teknisi') ? 'active' : '' }}">
+                  <a href="{{ route('teknisi.index') }}">
+                    <i class="fa fa-circle-o"></i> <span>Data Teknisi</span>
+                  </a>
+                </li>
+                <li class="{{ Request::is('teknisi/tambah-data') ? 'active' : '' }}">
+                  <a href="{{ route('teknisi.create') }}">
+                    <i class="fa fa-circle-o"></i> <span>Tambah Data Teknisi</span>
+                  </a>
+                </li>
+              </ul>
+            </li>               
 
             <li class="treeview {{ Request::is('perbaikan', 'data-perbaikan') ? 'active' : '' }}">
               <a href="#">

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CV.Dzaki - @yield('title')</title>
+    <title>Data Suku Cadang {{ $tgl }}</title>
     
       <style>
         body 
@@ -41,7 +41,8 @@
 </head>
 
 <body>
-        <h3 align="center" class="grid-item" style="margin-bottom: 20px;">CV.Dzaki Usaha Mandiri</h3>  
+        <h3 align="center" class="grid-item" style="margin-bottom: 30px;">CV.Dzaki Usaha Mandiri</h3>
+        <h4>Data Suku Cadang, {{ $tgl }}</h4>  
     
     <table align="center">
         <thead>

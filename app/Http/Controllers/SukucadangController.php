@@ -7,6 +7,7 @@ use App\Sukucadang;
 use App\KategoriSukucadang;
 use Illuminate\Validation\Rule;
 use PDF;
+use Carbon\Carbon;
 
 class SukucadangController extends Controller
 {
@@ -76,9 +77,10 @@ class SukucadangController extends Controller
 
     public function laporan()
     {
+        $tgl = Carbon::now()->format('d F Y');
         $sukucadangs = sukucadang::all();
-        $pdf = PDF::loadView('sukucadang.cetaklaporan', compact('sukucadangs'));
+        $pdf = PDF::loadView('sukucadang.cetaklaporan', compact('sukucadangs', 'tgl'));
         $pdf->setPaper('a4', 'portrait');
-        return $pdf->download('data-suku-cadang.pdf', compact('sukucadangs'));
+        return $pdf->download('data-suku-cadang.pdf', compact('sukucadangs', 'tgl'));
     }
 }

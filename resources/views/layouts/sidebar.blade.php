@@ -41,11 +41,27 @@
                 <li class="{{ Request::is('kulkas/tambah-data') ? 'active' : '' }}"><a href="{{ route('kulkas.create') }}"><i class="fa fa-circle-o"></i> Tambah Data Kulkas </a></li>
               </ul>
             </li>
-            <li class="{{ Request::is('suku-cadang') ? 'active' : '' }}">
-              <a href="{{ route('sukucadang.index') }}">
+
+            <li class="treeview {{ Request::is('suku-cadang', 'suku-cadang/tambah-data') ? 'active' : '' }}">
+              <a href="#">
                 <i class="fa fa-cogs"></i> <span>Suku Cadang</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
               </a>
-            </li>
+              <ul class="treeview-menu">
+                <li class="{{ Request::is('suku-cadang') ? 'active' : '' }}">
+                  <a href="{{ route('sukucadang.index') }}">
+                    <i class="fa fa-circle-o"></i> <span>Data Suku Cadang</span>
+                  </a>
+                </li>
+                <li class="{{ Request::is('suku-cadang/tambah-data') ? 'active' : '' }}">
+                  <a href="{{ route('sukucadang.create') }}">
+                    <i class="fa fa-circle-o"></i> <span>Tambah Data Suku Cadang</span>
+                  </a>
+                </li>
+              </ul>
+            </li>               
             
             <li class="{{ Request::is('teknisi', 'teknisi/tambah-data') ? 'active' : '' }}">
               <a href="{{ route('teknisi.index') }}">

@@ -70,13 +70,28 @@ Ubah Data
                             @endif
                     </div>
 
-                    <div class="form-group {{ $errors->has('stok') ? ' has-error' : '' }}">
-                        <label for="exampleInputPassword1"><i class="{{ $errors->has('stok') ? ' fa fa-exclamation-circle' : '' }}"></i> Stok</label>
-                        <input type="number" name="stok" value="{{$sukucadang->stok}}" class="form-control" id="exampleInputPassword1" placeholder="">
-                        @if ($errors->has('stok'))      
-                                    <span class="help-block">{{ $errors->first('stok') }}</span>
-                        @endif
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group {{ $errors->has('stok_minimal') ? ' has-error' : '' }}">
+                                <label for="exampleInputPassword1"><i class="{{ $errors->has('stok_minimal') ? ' fa fa-exclamation-circle' : '' }}"></i> Stok Minimal</label>
+                                <input type="number" name="stok_minimal" value="{{$sukucadang->stok_minimal}}" class="form-control" id="exampleInputPassword1" placeholder="">
+                                @if ($errors->has('stok_minimal'))      
+                                            <span class="help-block">{{ $errors->first('stok_minimal') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group {{ $errors->has('stok_tersedia') ? ' has-error' : '' }}">
+                                <label for="exampleInputPassword1"><i class="{{ $errors->has('stok_tersedia') ? ' fa fa-exclamation-circle' : '' }}"></i> Stok Tersedia</label>
+                                <input type="number" name="stok_tersedia" value="{{$sukucadang->stok_tersedia}}" class="form-control" id="exampleInputPassword1" placeholder="">
+                                @if ($errors->has('stok_tersedia'))      
+                                            <span class="help-block">{{ $errors->first('stok_tersedia') }}</span>
+                                @endif
+                            </div>
+                        </div>
                     </div>
+
+                    
                 </div>
 
               <!-- /.box-body -->

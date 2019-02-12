@@ -67,6 +67,13 @@ Data Perbaikan
                                 </td>
                             </tr>
                             <tr>
+                                <td>Biaya Perbaikan</td>
+                                <td>:</td>
+                                <td>
+                                    Rp {{ number_format ($perbaikan -> biaya_perbaikan, 2, ',', '.') }}
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Periode Tagihan</td>
                                 <td>:</td>
                                 <td>

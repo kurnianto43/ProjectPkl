@@ -58,7 +58,7 @@ class PerbaikanController extends Controller
         Perbaikan::create($data);
 
         $sukucadang = Sukucadang::findOrFail($request->id_sukucadang);
-        $sukucadang->stok -= $request->jumlah_sukucadang;
+        $sukucadang->stok_tersedia -= $request->jumlah_sukucadang;
         $sukucadang->save();
 
         return redirect()->route('perbaikan.index')->with('success', 'data berhasil disimpan');

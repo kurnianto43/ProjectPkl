@@ -54,7 +54,7 @@ Data Perbaikan
                     <td>{{ $perbaikan -> teknisi -> nama_teknisi }}</td>
                     <td>{{ $perbaikan -> kulkas -> nomor_asset }}</td>
                     <td>{{ $perbaikan -> tipepekerjaan -> kode_tipe_pekerjaan }}</td>
-                    <td>{{ $perbaikan -> tanggal_perbaikan }}</td>
+                    <td>{{ \Carbon\Carbon::parse($perbaikan -> tanggal_perbaikan)->format('d/m/Y')}}</td>
                     <td>
                       <a href="{{ route('perbaikan.details', $perbaikan) }}" class="btn btn-info btn-xs">Rincian</a>
                       <form action="{{ route('perbaikan.destroy', $perbaikan) }}" method="POST" class="pull-right">

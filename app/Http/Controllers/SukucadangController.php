@@ -29,14 +29,16 @@ class SukucadangController extends Controller
             'nomor_sukucadang' => 'required|unique:sukucadangs|max:5',
             'nama_sukucadang' => 'required|max:50',
             'id_kategori_sukucadang' => 'required',
-            'stok' => 'required',
+            'stok_minimal' => 'required',
+            'stok_tersedia' => 'required',
         ]); 
 
         Sukucadang::create([
             'nomor_sukucadang' => request('nomor_sukucadang'),
             'nama_sukucadang' => request('nama_sukucadang'),
             'id_kategori_sukucadang' => request('id_kategori_sukucadang'),
-            'stok' => request('stok')
+            'stok_minimal' => request('stok_minimal'),
+            'stok_tersedia' => request('stok_tersedia')
         ]);
 
         return redirect()->route('sukucadang.index')->with('success', 'Data berhasil ditambah');
@@ -55,14 +57,15 @@ class SukucadangController extends Controller
             'nomor_sukucadang' => 'required|max:5',
             'nama_sukucadang' => 'required|max:50',
             'id_kategori_sukucadang' => 'required',
-            'stok' => 'required',
+            'stok_minimal' => 'required',
+            'stok_tersedia' => 'required',
         ]); 
 
         $sukucadang->update([
             'nomor_sukucadang' => request('nomor_sukucadang'),
             'nama_sukucadang' => request('nama_sukucadang'),
             'id_kategori_sukucadang' => request('id_kategori_sukucadang'),
-            'stok' => request('stok')
+            'stok_tersedia' => request('stok_tersedia')
         ]);
 
         return redirect()->route('sukucadang.index')->with('success', 'Data berhasil diubah');

@@ -63,7 +63,14 @@
                 <td>{{ $sukucadang -> nomor_sukucadang }}</td>
                 <td>{{ $sukucadang -> nama_sukucadang }}</td>
                 <td>{{ $sukucadang -> kategorisukucadang -> nama_kategori }}</td>
-                <td>{{ $sukucadang -> stok }}</td>
+                <td style="
+                        @if ($sukucadang->stok_tersedia <= $sukucadang->stok_minimal)
+                          color: red;
+                        @endif
+
+                    ">
+                    {{ $sukucadang -> stok }}
+                </td>
             </tr>
             @endforeach                           
         </tbody>

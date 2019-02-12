@@ -39,7 +39,8 @@ Suku cadang
                     <th width="25%">Nomor Suku Cadang</th>
                     <th>Nama Suku Cadang</th>
                     <th>Kategori</th>
-                    <th>Stok</th>
+                    <th>Stok Minimal</th>
+                    <th>Stok Tersedia</th>
                     <th width="10%">Aksi</th>
                 </tr>
                 </thead>
@@ -52,7 +53,16 @@ Suku cadang
                     <td>{{ $sukucadang -> nomor_sukucadang }}</td>
                     <td>{{ $sukucadang -> nama_sukucadang }}</td>
                     <td>{{ $sukucadang -> kategorisukucadang -> nama_kategori }}</td>
-                    <td>{{ $sukucadang -> stok }}</td>
+                    <td>{{ $sukucadang -> stok_minimal }}</td>
+                    <td 
+                    style="
+                        @if ($sukucadang->stok_minimal >= $sukucadang->stok_tersedia)
+                          color: red;
+                        @endif
+
+                    "
+
+                    >{{ $sukucadang -> stok_tersedia }}</td>
                     <td>
                       <a href="{{ route('sukucadang.edit', $sukucadang) }}" class="btn btn-warning btn-xs">Ubah</a>
                       <form action="{{ route('sukucadang.destroy', $sukucadang) }}" method="POST" class="pull-right">

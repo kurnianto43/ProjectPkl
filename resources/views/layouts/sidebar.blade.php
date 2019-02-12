@@ -84,7 +84,7 @@
               </ul>
             </li>               
 
-            <li class="treeview {{ Request::is('perbaikan', 'data-perbaikan') ? 'active' : '' }}">
+            <li class="treeview {{ Request::is('tambah-data-perbaikan', 'perbaikan') ? 'active' : '' }}">
               <a href="#">
                 <i class="fa fa-cog"></i> <span>Perbaikan</span>
                 <span class="pull-right-container">
@@ -92,8 +92,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li class="{{ Request::is('perbaikan', 'data-perbaikan') ? 'active' : '' }}"><a href="{{ route('perbaikan.index') }}"><i class="fa fa-circle-o"></i> Data Perbaikan </a></li>
-                <li class=""><a href="{{ route('perbaikan.create') }}"><i class="fa fa-circle-o"></i> Tambah Data Perbaikan</a></li>
+                <li class="{{ Request::is('perbaikan') ? 'active' : '' }}"><a href="{{ route('perbaikan.index') }}"><i class="fa fa-circle-o"></i> Data Perbaikan </a></li>
+                <li class="{{ Request::is('tambah-data-perbaikan') ? 'active' : '' }}"><a href="{{ route('perbaikan.create') }}"><i class="fa fa-circle-o"></i> Tambah Data Perbaikan</a></li>
               </ul>
             </li>
             
